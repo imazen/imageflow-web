@@ -17,9 +17,9 @@
       {% include header.html %}
 
       <article {%
-        if page.background-image %} id="main"{%
-        elsif page.options contains 'minihead' %} id="minihead"{%
-        else %} id="standard"{%
+        if page.background-image %} id="main" {%
+        elsif page.options contains 'minihead' %} id="minihead" {%
+        else %} id="standard" {%
         endif %}>
 
         {% include header-inner.html %}
