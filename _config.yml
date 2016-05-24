@@ -11,21 +11,21 @@
 # (Using that method instead of site.owner, in case your posts get cloned with your repo.)
 
 # Site settings
-title: arkadianriver
-description: Flowing creativity &#x2192; Cascading bliss
+title: imageflow
+description: shrink the web &#x2192; with clarity
 owner:
-  name: Gary Faircloth # or company name
-  email: gfair@arkadianriver.com
-  url: http://arkadianriver.com
-first_published: 1996 # if migrating another site, the year of your first publish
+  name: Imazen # or company name
+  email: support@imazen.io
+  url: http://imazen.io
+first_published: 2016 # if migrating another site, the year of your first publish
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://arkadianriver.com" # the base hostname & protocol for your site
+url: "https://www.imageflow.io" # the base hostname & protocol for your site
 
 # on landing page
 # - set the greeting only if you want to display the first green section
 greeting:
-  title: Welcome!  
-  text: I hope you enjoy my collection
+  title: What does imageflow solve?  
+  text: It provides a compact and correct toolkit for transforming image assets. libimageflow allows in-process use, and imageflow-server enables easy responsive images. 
 # - title for your blog's featured posts
 features-title: Featured topics
 # - displayed at the bottom
@@ -34,12 +34,12 @@ closing-para: Feel free to get in touch. Cheers!
 
 # on all pages (and the first three you list display with greeting, if included)
 social:
-  twitter: https://twitter.com/arkadianriver
-  github: https://github.com/arkadianriver
-  linkedin-square: https://linkedin.com/in/garyfaircloth
-  facebook-official: https://facebook.com/gary.faircloth
-  google-plus-square: https://plus.google.com/u/0/+GaryFaircloth
-  email: /contact/
+  twitter: https://twitter.com/nathanaeljones
+  github: https://github.com/imazen
+  # linkedin-square: https://linkedin.com/in/garyfaircloth
+  # facebook-official: https://facebook.com/gary.faircloth
+  # google-plus-square: https://plus.google.com/u/0/+GaryFaircloth
+  email: mailto:support@imageresizing.net
   #flickr:
   #instagram:
   #youtube-square:
