@@ -16,16 +16,13 @@
 
       {% include header.html %}
 
-      <article {%
-        if page.background-image %} id="main" {%
-        elsif page.options contains 'minihead' %} id="minihead" {%
-        else %} id="standard" {%
-        endif %}>
+      <article {% if page.background-image %} id="main" 
+      {% elsif page.options contains 'minihead' %} id="minihead" 
+      {% else %} id="standard" {% endif %}>
 
         {% include header-inner.html %}
 
-        {{ content }}
-
+        {{ content }} 
       </article>
 
       {% include footer.html %}

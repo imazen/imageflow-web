@@ -1,12 +1,4 @@
-{%
-if page.author %}{%
-  assign auth = site.data.authors[page.author] %}{%
-  assign test1 = auth.avatar | slice: 0,4 %}{%
-  if test1 == "http" %}{%
-    assign pic = auth.avatar %}{%
-  else %}{%
-    assign pic = auth.avatar | prepend: "/images/" | prepend: site.baseurl %}{%
-  endif %}
+{% if page.author %}{%   assign auth = site.data.authors[page.author] %}{%   assign test1 = auth.avatar | slice: 0,4 %}{%   if test1 == "http" %}{%     assign pic = auth.avatar %}{%   else %}{%     assign pic = auth.avatar | prepend: "/images/" | prepend: site.baseurl %}{%   endif %}
 <hr style="margin-bottom:12px;" />
 <div class="author">
 <!-- style="margin:8px 28px 12px 0;position:relative;float:left;"> -->
@@ -18,5 +10,4 @@ if page.author %}{%
   </div>
   <div class="auth-desc">{{ auth.bio }}</div>
 </div>
-<hr style="margin-top:9px;" />{%
-endif %}
+<hr style="margin-top:9px;" />{% endif %}

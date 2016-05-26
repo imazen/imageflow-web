@@ -26,15 +26,11 @@
                 <li><a href="https://github.com/imazen/imageflow" class="button special">Go to GitHub</a></li>
               </ul>
               
-            </div>{%
-            if site.greeting %}
-            <a href="#greeting" class="more scrolly">Continue</a>{%
-            else %}
-            <a href="#landing_pages" class="more scrolly">Continue</a>{%
-            endif %}
+            </div>{%             if site.greeting %}
+            <a href="#greeting" class="more scrolly">Continue</a>{%             else %}
+            <a href="#landing_pages" class="more scrolly">Continue</a>{%             endif %}
           </section>
-          {%
-          if site.greeting %}
+          {%           if site.greeting %}
         <!-- One -->
           <section id="greeting" class="wrapper style1 special">
             <div class="inner">
@@ -42,29 +38,17 @@
                 <h2>{% if site.greeting.title %}{{ site.greeting.title }}{% else %}{{ site.title }}{% endif %}</h2>
                 <p>{% if site.greeting.text %}{{ site.greeting.text | markdownify }}{% else %}{{ site.description | markdownify }}{% endif %}</p>
               </header>
-              <ul class="icons major">{%
-              for socloc in site.social limit:3 %}{%
-                if socloc[1] %}{%
-                  if socloc[0] == 'email' %}
+              <ul class="icons major">{%               for socloc in site.social limit:3 %}{%                 if socloc[1] %}{%                   if socloc[0] == 'email' %}
                 <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-envelope major style1"
-                       ><span class="label">E-mail</span></a></li>{%
-                  else %}
+                       ><span class="label">E-mail</span></a></li>{%                   else %}
                 <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }} major style1"
-                       ><span class="label">{{ socloc[0] }}</span></a></li>{%
-                  endif %}{%
-                endif %}{%
-              endfor %}
+                       ><span class="label">{{ socloc[0] }}</span></a></li>{%                   endif %}{%                 endif %}{%               endfor %}
               </ul>
             </div>
-          </section>{%
-          endif %}
+          </section>{%           endif %}
 
         <!-- Two -->
-          <section id="landing_pages" class="wrapper alt style2">{%
-            assign sorted_pages = site.pages | sort:"id" %}{%
-            for my_page in sorted_pages %}{%
-              if my_page.title %}{%
-                unless my_page.options contains 'nolanding' %}
+          <section id="landing_pages" class="wrapper alt style2">{%             assign sorted_pages = site.pages | sort:"id" %}{%             for my_page in sorted_pages %}{%               if my_page.title %}{%                 unless my_page.options contains 'nolanding' %}
             <section class="spotlight">
               <div class="image">
                 <a href="{{ my_page.url | prepend:site.baseurl }}">
@@ -77,24 +61,17 @@
                 <p>{{ my_page.excerpt markdownify | strip_html | strip_newlines | escape_once }}</p>
                 </a>
               </div>
-            </section>{%
-                endunless %}{%
-              endif %}{%
-            endfor %}
+            </section>{%                 endunless %}{%               endif %}{%             endfor %}
           </section>
 
-        <!-- Three -->{%
-      if site.tags.featured %}
+        <!-- Three -->{%       if site.tags.featured %}
           <section id="landing_features" class="wrapper style3 special">
             <div class="inner">
               <header class="major">
                 <h2>{{ site.features-title }}</h2>
                 <!-- <p>Blog posts with decent content</p> -->
               </header>
-              <ul class="features">{%
-                for my_post in site.posts %}{%
-                  if my_post.tags contains 'featured' %}{%
-                    assign i = i | plus:1 %}
+              <ul class="features">{%                 for my_post in site.posts %}{%                   if my_post.tags contains 'featured' %}{%                     assign i = i | plus:1 %}
                 <li class="icon fa-{% if my_post.icon %}{{ my_post.icon }}{% else %}heart-o{% endif %}"><!-- featured:{{ i }} -->
                   <a href="{{ my_post.url | prepend:site.baseurl }}">
                   <div class="container">
@@ -102,16 +79,10 @@
                   <p>{{ my_post.data}}<br />{{ my_post.excerpt | strip_html | truncatewords: 16 }}</p>
                   </div>
                   </a>
-                </li>{%
-                    if i == 8 %}{%
-                      break %}{%
-                    endif %}{%
-                  endif %}{%
-                endfor %}
+                </li>{%                     if i == 8 %}{%                       break %}{%                     endif %}{%                   endif %}{%                 endfor %}
               </ul>
             </div>
-          </section>{%
-      endif %}
+          </section>{%       endif %}
 
         <!-- CTA -->
     <!--       <section id="cta" class="wrapper style4">

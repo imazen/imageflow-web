@@ -1,7 +1,3 @@
-<ul class="techlist">{%
-for tag in work.tags %}{%
-  unless tag == 'featured' %}
-<li><span class="tech">{{ tag }}</span></li>{%
-  endunless %}{%
-endfor %}
+<ul class="techlist">{% for tag in work.tags %}{%   unless tag == 'featured' %}
+<li><span class="tech">{{ tag }}</span></li>{%   endunless %}{% endfor %}
 </ul>

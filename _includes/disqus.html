@@ -3,10 +3,7 @@
 Modified so that comments follow the author rather than the
 site owner, should the topic be duplicated elsewhere
 -----------------------------------------------------------
-{% endcomment %}{%
-if page.author %}{%
-  assign auth = site.data.authors[page.author] %}{%
-  if auth.disqus_shortname %}
+{% endcomment %}{% if page.author %}{%   assign auth = site.data.authors[page.author] %}{%   if auth.disqus_shortname %}
 <div id="disqus_thread" class="disqus"></div>
 <script>
 /**
@@ -23,6 +20,4 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>{%
-  endif %}{%
-endif %}
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>{%   endif %}{% endif %}

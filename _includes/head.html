@@ -7,19 +7,7 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" />
   <!--[if lte IE 8]><link rel="stylesheet" href="{{ "/css/ie8.css" | prepend: site.baseurl }}" /><![endif]-->
-  <!--[if lte IE 9]><link rel="stylesheet" href="{{ "/css/ie9.css" | prepend: site.baseurl }}" /><![endif]-->{%
-  if page.background-image %}{%
-    assign first_char = page.background-image | slice: 0 %}{%
-    if first_char == '/' %}{%
-      assign second_char = page.background-image | slice: 1 %}{%
-      if second_char == '/' %}{% comment %}                     // remote                 {% endcomment %}{%
-        assign imageurl = page.background-image %}{%
-      else %}{% comment %}                                      // local, not in /images/ {% endcomment %}{%
-        assign imageurl = page.background-image | prepend: site.baseurl %}{%
-      endif %}{%
-    else %}{% comment %}                                        // local, in /images/     {% endcomment %}{%
-      assign imageurl = page.background-image | prepend: "/images/" | prepend: site.baseurl %}{%
-    endif %}
+  <!--[if lte IE 9]><link rel="stylesheet" href="{{ "/css/ie9.css" | prepend: site.baseurl }}" /><![endif]-->{%   if page.background-image %}{%     assign first_char = page.background-image | slice: 0 %}{%     if first_char == '/' %}{%       assign second_char = page.background-image | slice: 1 %}{%       if second_char == '/' %}{% comment %}                     // remote                 {% endcomment %}{%         assign imageurl = page.background-image %}{%       else %}{% comment %}                                      // local, not in /images/ {% endcomment %}{%         assign imageurl = page.background-image | prepend: site.baseurl %}{%       endif %}{%     else %}{% comment %}                                        // local, in /images/     {% endcomment %}{%       assign imageurl = page.background-image | prepend: "/images/" | prepend: site.baseurl %}{%     endif %}
   <style>
   #main > header {
     background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("{{ imageurl }}");
@@ -34,23 +22,11 @@
     background-image: url("{{ imageurl }}");
   }
   </style>
-  -->{%
-  endif %}{%
-  if page.style-includes %}{%
-    for include in page.style-includes %}{%
-      assign test1 = include | slice: 0,2 %}{%
-      if test1 == "//" %}
-  <link rel="stylesheet" href="{{ include }}" />{%
-      else %}
-  <link rel="stylesheet" href="{{ include | prepend: site.baseurl }}" />{%
-      endif %}{%
-    endfor %}{%
-  endif %}{%
-  if page.style %}
+  -->{%   endif %}{%   if page.style-includes %}{%     for include in page.style-includes %}{%       assign test1 = include | slice: 0,2 %}{%       if test1 == "//" %}
+  <link rel="stylesheet" href="{{ include }}" />{%       else %}
+  <link rel="stylesheet" href="{{ include | prepend: site.baseurl }}" />{%       endif %}{%     endfor %}{%   endif %}{%   if page.style %}
 <style>
-{{ page.style }}
-</style>{%
-  endif %}
+{{ page.style }} </style>{%   endif %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   <script type="text/javascript">
       window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};

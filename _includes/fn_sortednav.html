@@ -5,36 +5,7 @@
           #   returns: displays navigation using included backnextnav.html
           # Original idea:
           #   https://gist.github.com/budparr/3e637e575471401d01ec
-  {%    endcomment
-%}{%    for post in sorted_list
-%}{%      if post.url == page.url
-%}{%        unless forloop.first
-%}{%          assign prevbutton = '&lt; Back'
-%}{%          assign prevurl = prev.url
-%}{%          assign prevtitle = prev.title
-%}{%        elsif page.permalink
-%}{%          assign prevbutton = nil
-%}{%          assign prevurl = nil
-%}{%          assign prevtitle = nil
-%}{%        else
-%}{%          assign prevbutton = idxbutton
-%}{%          assign prevurl = idxperma | prepend: baseurl
-%}{%          assign prevtitle = idxtitle
-%}{%        endunless
-%}{%        unless forloop.last
-%}{%          assign next = sorted_list[forloop.index]
-%}{%          assign nextbutton = 'Next &gt;'
-%}{%          assign nexturl = next.url
-%}{%          assign nexttitle = next.title
-%}{%        else
-%}{%          assign nextbutton = idxbutton
-%}{%          assign nexturl = idxperma | prepend: baseurl
-%}{%          assign nexttitle = idxtitle
-%}{%        endunless
-%}{%      endif
-%}{%      assign prev = post
-%}{%    endfor
-%}
+  {%    endcomment %}{%    for post in sorted_list %}{%      if post.url == page.url %}{%        unless forloop.first %}{%          assign prevbutton = '&lt; Back' %}{%          assign prevurl = prev.url %}{%          assign prevtitle = prev.title %}{%        elsif page.permalink %}{%          assign prevbutton = nil %}{%          assign prevurl = nil %}{%          assign prevtitle = nil %}{%        else %}{%          assign prevbutton = idxbutton %}{%          assign prevurl = idxperma | prepend: baseurl %}{%          assign prevtitle = idxtitle %}{%        endunless %}{%        unless forloop.last %}{%          assign next = sorted_list[forloop.index] %}{%          assign nextbutton = 'Next &gt;' %}{%          assign nexturl = next.url %}{%          assign nexttitle = next.title %}{%        else %}{%          assign nextbutton = idxbutton %}{%          assign nexturl = idxperma | prepend: baseurl %}{%          assign nexttitle = idxtitle %}{%        endunless %}{%      endif %}{%      assign prev = post %}{%    endfor %}
       <div class="backnext {{ include.posclass }}">
         {% include backnextnav.html %}
       </div>
