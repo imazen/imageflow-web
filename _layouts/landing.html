@@ -64,15 +64,14 @@
             </section>{%                 endunless %}{%               endif %}{%             endfor %}
           </section>
 
-        <!-- Three -->{%       if site.tags.featured %}
+        <!-- Three {%       if site.tags.featured %}
           <section id="landing_features" class="wrapper style3 special">
             <div class="inner">
               <header class="major">
                 <h2>{{ site.features-title }}</h2>
-                <!-- <p>Blog posts with decent content</p> -->
               </header>
               <ul class="features">{%                 for my_post in site.posts %}{%                   if my_post.tags contains 'featured' %}{%                     assign i = i | plus:1 %}
-                <li class="icon fa-{% if my_post.icon %}{{ my_post.icon }}{% else %}heart-o{% endif %}"><!-- featured:{{ i }} -->
+                <li class="icon fa-{% if my_post.icon %}{{ my_post.icon }}{% else %}heart-o{% endif %}">
                   <a href="{{ my_post.url | prepend:site.baseurl }}">
                   <div class="container">
                   <h3>{{ my_post.title }}</h3>
@@ -83,9 +82,9 @@
               </ul>
             </div>
           </section>{%       endif %}
-
+-->
   
-    <section id="cta" class="wrapper style4">
+    <section id="landing_features" class="wrapper style3 special">
             <div class="inner">
             {% capture pledges %}{% include pledges.md %}{% endcapture %} 
              {{ pledges | markdownify }}
