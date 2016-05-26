@@ -1,5 +1,5 @@
 # Welcome to Jekyll!
-
+version: 3.0.3
 
 # In addition to these settings, there is a file _data/tokens-template.yml
 # that you'll want to customize for your site. It's named 'tokens' because
@@ -35,7 +35,7 @@ closing-para: Feel free to get in touch. Cheers!
 # on all pages (and the first three you list display with greeting, if included)
 social:
   twitter: https://twitter.com/nathanaeljones
-  github: https://github.com/imazen
+  github: https://github.com/imazen/imageflow
   # linkedin-square: https://linkedin.com/in/garyfaircloth
   # facebook-official: https://facebook.com/gary.faircloth
   # google-plus-square: https://plus.google.com/u/0/+GaryFaircloth

@@ -1,6 +1,6 @@
 ---
 key: 3
-#title: Contact
+title: Licensing
 permalink: /licensing/
 options: nolanding
 excerpt: How licensing works
