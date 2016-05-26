@@ -11,8 +11,8 @@
 # (Using that method instead of site.owner, in case your posts get cloned with your repo.)
 
 # Site settings
-title: imageflow
-description: shrink the web &#x2192; with clarity
+title: libimageflow & imageflow-server
+description: respect the pixels
 owner:
   name: Imazen # or company name
   email: support@imazen.io
