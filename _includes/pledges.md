@@ -13,7 +13,7 @@ We seek to "always do the right thing" for image quality and accuracy - by defau
 
 Our unrivaled efficiency on commodity hardware means you can slash power consumption and (for image-heavy organizations) likely turn off the majority of your cloud servers. 
 
-**We guarantee you a single binary for libimageflow,** with no dependencies other than libc (if that). We hope to achieve the same for imageflow-server. **Every commit is tested on Linux, Mac, and Windows.** Robust cross-platform builds are crucial, and **we have embraced [Conan] to handle native package management.**
+**We guarantee you a single binary for libimageflow,** with no dependencies other than libc (if that). We hope to achieve the same for imageflow-server. **Every commit is tested on Linux, Mac, and Windows.** Robust cross-platform builds are crucial, and **we have embraced [Conan to handle native package management](http://conan.io).**
 
 ## Our pledge to Designers.
 
