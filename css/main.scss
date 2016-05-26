@@ -2235,6 +2235,20 @@ $baseurl: '{{ site.baseurl }}/images';
   	margin-bottom:16px;
   }
 
+  .emailme {
+    input[type='text'] {
+      display: inline;
+      font-size: 0.8em;
+      width: 200px;
+      line-height: 3.125em;
+      height: 3.125em;
+    }
+
+    input[type='submit'] {
+
+    }
+  }
+
 {% if site.custom_extensions == 'yes' %}
 {% include _my/custom.scss %}
 {% endif %}
