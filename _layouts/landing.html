@@ -84,19 +84,13 @@
             </div>
           </section>{%       endif %}
 
-        <!-- CTA -->
-    <!--       <section id="cta" class="wrapper style4">
+  
+    <section id="cta" class="wrapper style4">
             <div class="inner">
-              <header>
-                <h2>{{ site.closing-head }}</h2>
-                <p>{{ site.closing-para }}</p>
-              </header>
-              <ul class="actions vertical">
-                <li><a href="#" class="button fit special">Activate</a></li>
-                <li><a href="{{ '/contact/' | prepend: site.baseurl }}" class="button fit special">Contact</a></li>
-              </ul>
+            {% capture pledges %}{% include pledges.md %}{% endcapture %} 
+             {{ pledges | markdownify }}
             </div>
-          </section> -->
+          </section>
 
       {% include footer.html %}
 
