@@ -11,7 +11,7 @@ excerpt: June 1st, 2016
 
 ### Our Goal
 
-The problem that we are trying to fix is a huge one - it infiltrates every aspect of web browsing, and has insidious consequences for businesses and artists alike.  Resizing images shouldn't be so complicated, but to date we have yet to come out with any open-source software that addresses both the issues of photo quality and server security.  Imageflow will be the software that changes that.
+The problem that we are trying to fix is a huge one - it infiltrates every aspect of web browsing, and has insidious consequences for businesses and artists alike.  Resizing images shouldn't be so complicated, but to date we have yet to see open-source software that adequately addresses the issues of speed, photo quality and server security.  Imageflow will be the software that changes that.
 
 ### Who would benefit from imageflow?
 
