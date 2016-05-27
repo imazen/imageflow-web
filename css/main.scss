@@ -2249,6 +2249,10 @@ $baseurl: '{{ site.baseurl }}/images';
     }
   }
 
+  #what-is-imageflow {
+    margin-bottom:0;
+  }
+
 {% if site.custom_extensions == 'yes' %}
 {% include _my/custom.scss %}
 {% endif %}

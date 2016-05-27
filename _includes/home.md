@@ -1,56 +1,43 @@
 ## What is imageflow?
 
-**[libimageflow](https://www.imageflow.io) is the image library you wish your stack shipped with.** It's correct, fast, safe, and has an evolvable API. It creates compact and sharp files. Its stateless C ABI can work with even the most troublesome multi-tenant host languages. Initial bindings will include Ruby and (?). Support the Kickstarter and vote to prioritize your favorite language. 
+**Imageflow is open-source software which scales, edits, and optimizes images.**
 
-[libimageflow is tested daily on Linux, Mac, and Windows (x86 and x86\_64 architectures)](https://github.com/imazen/imageflow).  
+**libimageflow has ~10x the throughput of [ImageMagick](https://www.imagemagick.org), yet puts security first**. It is correct, fast, and has an evolvable JSON API. Imageflow doesn't try to be ImageMagick; it supports only the core image operations and web-safe image formats. This focus lets libimageflow have a tiny and auditable codebase – yet has the right features for CMS and CDN use, where ImageMagick is an unacceptable liability (it needs a sandbox). 
 
-**imageflow-server exposes a REST API** – an image URL followed by a simple querystring of commands, like `http://server/prefix/image.jpg?width=200&sharpen=30`  You can map prefixes to different backend storage locations, like S3 or other HTTP servers. If you've been putting off moving to responsive images, [imageflow-server](https://www.imageflow.io) will help make the transition painless. [ImageResizer](https://imageresizing.net) already solves this for Windows servers, but is highly coupled to Windows APIs..
+libmageflow's stateless C ABI can work with even the most troublesome multi-tenant host languages, and [is tested daily on Linux, Mac, and Windows](https://github.com/imazen/imageflow) with [Travis](https://travis-ci.org)+[Conan](https://conan.io), and [AppVeyor](https://appveyor.com)+Conan. libmageflow uses [Conan for consuming and prouducing native packages](https://conan.io), but we will also publish precompiled binaries for those 3 platforms.  Initial bindings will include Ruby and whichever language receives the most votes from backers by June 28th. **Pledge $5 or more and vote to prioritize your favorite language.**
 
-**imageflow-server offers a JSON API** – Post JSON operation lists or graphs along with multiple inputs and outputs, and the results are returned to you.
+**imageflow-server exposes a REST API** – an image URL followed by a simple querystring of commands, like `http://server/prefix/image.jpg?width=200&sharpen=30`  You can map prefixes to different backend storage locations, like S3 or other HTTP servers. If you've been putting off moving to responsive images, [imageflow-server](https://www.imageflow.io) will help make the transition painless. [ImageResizer](https://imageresizing.net) already solves this for Windows servers, but is highly coupled to Windows APIs. imageflow-server will run on Linux, Mac, *and* Windows.
 
-## What's the problem?
+**imageflow-server offers a JSON API** – You can POST a JSON operation list or graph along with multiple inputs and outputs, and the results are returned to you. libimageflow can accuractely predict the cost for any operation, which permits ideal work redistribution and load balancing. We designed imageflow with petabyte image collections in mind.
 
-**Security**: Image toolkits and codecs are notorious. Until a few weeks ago, ImageMagick would run any shell scripts it found in .svg files. 
-ImageMagick is intended to be used in a sandbox. In practice, it is run by privileged server accounts. A recent string of vulnerabilities in ImageMagick were given the [ImageTragick](https://imagetragick.com) moniker to raise awareness.
+--- 
 
-**Quality**: Most visual artefacts you see in images today are entirely avoidable. Decades of hacky approximations, bad mathematical and color space reasoning, and legacy compression behaviors combine to establish a very low bar for image quality. Imageflow will set the bar for default quality and correctness.
+# Image management is problematic
 
-**Speed**: There's no valid reason your web server can't deliver image quality on par with Adobe Lightroom, and do so in **8 to 200 milliseconds.** Imageflow enables that scenario. We don't need to shy away from on-the-fly image processing; we just need to focus on it and invest in our tools.
+--------------
 
-#### Why JSON?
+#### Tragick Security
 
-We prototyped Cap'n Proto, but found it too hard to use from the client side. This doesn't rule out a later Cap'n Proto interface, but JSON is easier to use, and is also slightly easier to evolve as our operation portfolio grows and nodes change. 
+Image toolkits and codecs are a notorious exploitation vector. Until a few weeks ago, ImageMagick would run any shell scripts it found in .svg files. 
+ImageMagick is intended to be used in a sandbox. In practice, it is run by privileged server accounts. A recent string of vulnerabilities in ImageMagick were given the [ImageTragick](https://imagetragick.com) moniker to raise awareness.  
+**Solution**  
+Imageflow puts security first by retaining a small and testable codebase, being cautious with dependencies, and making Coverity scans and Valgrind testing an automated part of the development process.
 
-#### What does Imageflow do that ImageMagick doesn't?
+#### Absymal Visual Quality
 
-The right things by default. Imageflow makes it hard to screw up your images. Also, Imageflow is 3-10x faster, and that can translate directly into shutting down a majority of your imaging VMs. Smaller files will speed up your website and lower storage costs.
+Most visual artefacts you see in images today are entirely avoidable. Decades of hacky approximations, bad mathematical and color space reasoning, and legacy compression behaviors combine to establish a very low bar for image quality.  
+**Solution**  
+With correct math and highly optimized encoders, Imageflow sets a new bar for image quality. We rebuilt everything from the ground up, performing exhaustive testing of inputs, lookup tables, and tuning parameters.
 
-Despite comprising over a million lines of code (counting codecs), ImageMagick's most common usage is straightforward: transform and re-encode web images with optimal quality. A sizable task, but one that merits only a fraction of that codebase.
+#### Bloated file size
 
-Focusing exclusively on the transform and re-encode use case permits Imageflow to have a small, auditable codebase. It also frees developer time to spend on mathematical correctness and performance.  
+Images make up the majority of bytes on most websites. Images usually average 2-3x larger than neccessary for the same perceptual quality.  
+**Solution**  
+Imageflow focuses on a smaller set of highly tuned codecs, and should outperform ImageMagick by a significant margin across all file types. We're seeking licensing agreements for libimagequant and other best-in-class algorithms as well.
 
-#### What does ImageMagick do that Imageflow doesn't?
+#### Slow Processing
+Basic ImageMagick operations can take seconds per image. For on-demand imaging in ecommerce, there's a hard latency ceiling before you start losing customers, and it's a far lower than 1500ms.  
+**Solution**  
+There's no valid reason your web server can't deliver image quality on par with Adobe Lightroom, and do so in **8 to 200 milliseconds.** Imageflow enables that scenario. We don't need to shy away from on-the-fly image processing; we just need to focus on it and invest in our tools.
 
-Tens of thousands of sophisticated operations that you may need one day, but likely not on your web server.  We put the most useful into Imageflow, but optimize them for deterministic run-time. 
-
-#### What is it like to use libimageflow directly?
-
-If you wanted to use libimageflow directly (instead of via wrapper or abstraction), you would:
-
-1. Create a flow\_context
-2. Create two flow\_io objects, for your input and ouptut files.
-3. Create a flow\_job, then add the two flow\_io objects to the job.
-5. Call flow\_job\_build\_json() with your json command. 
-6. Call flow\_destroy(context) to perform all cleanup
-
-
-#### Why do you use an operation graph internally?
-
-A directed acyclic graph permits us to make very advanced optimizations and comprehensions that can assist with encoder and decoder tuning. It also facilitates multi-input and multi-output image jobs. You won't need to construct a adjacency list in JSON unless you actually need those features, though - a linear sequence of operations is all most developers will use. 
-
-#### You're targeting imageflow for inclusion in CDNs and CMSes?
-
-Yes. We're thinking of petabyte scalability; we can make it possible to predict RAM/CPU consumption for any operation before you start it. It's easy to perform perfect load balancing when you have predictive ability. And Imageflow supports high throughput and multi-core systems with very low overhead.
-
-CMSes don't have any great options. Builtin libraries are often fast yet produce poor quality. Adding ImageMagick is an unacceptable security liability. Imageflow can check all the boxes - fast, secure, correct. And unlike [ImageResizer](https://imageresizing.net) – cross-platform and language-agnostic.
 
