@@ -1,5 +1,5 @@
 ---
-key: 3
+key: 4
 title: Licensing
 permalink: /licensing/
 options: nolanding
