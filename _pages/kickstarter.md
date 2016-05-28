@@ -138,7 +138,7 @@ Nov 2017
 
 #### $8,900 or more
 
-> ImageResizer to Imageflow Transitional Support Contract (Silver Tier, 18 months)
+> ImageResizer to Imageflow Transitional Support Contract (Platinum Tier, 18 months)
 >
 > This includes simultaneous ImageResizer and Imageflow support, and is currently the only way to purchase support for ImageResizer.
 >
@@ -153,7 +153,7 @@ Jul 2016
 
 #### $10,000
 
-> Imageflow Gold Integration Contract - 12mo
+> Imageflow Platinum Plus Integration Contract - 12mo
 >
 > We'll provide you with up to 60 hours of **on-site** or remote consultation and integration assistance. Unlimited business-hours support. 10 emergency support incidents.
 >
