@@ -2,7 +2,11 @@
 
 **Imageflow is open-source software which scales, edits, and optimizes images.**
 
-**libimageflow has ~10x the throughput of [ImageMagick](https://www.imagemagick.org), yet puts security first**. It is correct, fast, and has an evolvable JSON API. Imageflow doesn't try to be ImageMagick; it supports only the core image operations and web-safe image formats. This focus lets libimageflow have a tiny and auditable codebase – yet has the right features for CMS and CDN use, where ImageMagick is an unacceptable liability (it needs a sandbox). 
+Unlike most tools, it does *not* have a visual interface; it is designed to be embedded into software like Wordpress, Ebay, Craigslist, or Facebook. 
+
+**libimageflow can be used directly over [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) by any mainstream language**. The second component, imageflow-server, speaks HTTP – and any networked device can use it. A human can use it from their web browser by adding `?width=200` to the image URL (or any of 30 other commands). 
+
+**libimageflow has ~10x the throughput of [ImageMagick](https://www.imagemagick.org), yet puts security first**. It is correct, fast, and has an evolvable JSON API. Imageflow doesn't try to be ImageMagick; it supports only the core image operations and web-safe image formats. This focus gives libimageflow a tiny and auditable codebase – yet still have the right features for CMS and CDN use. Unsandboxed ImageMagick is an unacceptable liability for any kind of business. 
 
 libmageflow's stateless C ABI can work with even the most troublesome multi-tenant host languages, and [is tested daily on Linux, Mac, and Windows](https://github.com/imazen/imageflow) with [Travis](https://travis-ci.org)+[Conan](https://conan.io), and [AppVeyor](https://appveyor.com)+Conan. libmageflow uses [Conan for consuming and prouducing native packages](https://conan.io), but we will also publish precompiled binaries for those 3 platforms.  Initial bindings will include Ruby and whichever language receives the most votes from backers by June 28th. **Pledge $5 or more and vote to prioritize your favorite language.**
 
@@ -18,8 +22,8 @@ libmageflow's stateless C ABI can work with even the most troublesome multi-tena
 
 #### Tragick Security
 
-Image toolkits and codecs are a notorious exploitation vector. Until a few weeks ago, ImageMagick would run any shell scripts it found in .svg files. 
-ImageMagick is intended to be used in a sandbox. In practice, it is run by privileged server accounts. A recent string of vulnerabilities in ImageMagick were given the [ImageTragick](https://imagetragick.com) moniker to raise awareness.  
+Image toolkits and codecs are a notorious exploitation vector. Until a few weeks ago, ImageMagick would execute bash commands written in URLs inside .svg files. 
+ImageMagick is intended to be used in a sandbox. In practice, it is most often run by privileged server accounts. A recent string of vulnerabilities in ImageMagick were given the [ImageTragick](https://imagetragick.com) moniker to raise awareness prior to the hacking of many sites.  
 **Solution**  
 Imageflow puts security first by retaining a small and testable codebase, being cautious with dependencies, and making Coverity scans and Valgrind testing an automated part of the development process.
 
