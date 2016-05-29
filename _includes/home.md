@@ -27,7 +27,7 @@ ImageMagick is intended to be used in a sandbox. In practice, it is most often r
 **Solution**  
 Imageflow puts security first by retaining a small and testable codebase, being cautious with dependencies, and making Coverity scans and Valgrind testing an automated part of the development process.
 
-#### Absymal Visual Quality
+#### Abysmal Visual Quality
 
 Most visual artefacts you see in images today are entirely avoidable. Decades of hacky approximations, bad mathematical and color space reasoning, and legacy compression behaviors combine to establish a very low bar for image quality.  
 **Solution**  
@@ -35,7 +35,7 @@ With correct math and highly optimized encoders, Imageflow sets a new bar for im
 
 #### Bloated file size
 
-Images make up the majority of bytes on most websites. Images usually average 2-3x larger than neccessary for the same perceptual quality.  
+Images make up the majority of bytes on most websites. Images usually average 2-3x larger than necessary for the same perceptual quality.  
 **Solution**  
 Imageflow focuses on a smaller set of highly tuned codecs, and should outperform ImageMagick by a significant margin across all file types. We're seeking licensing agreements for libimagequant and other best-in-class algorithms as well.
 
