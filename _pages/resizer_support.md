@@ -28,7 +28,7 @@ Platinum support contract shall begin on July 1, 2016 (or up to 3 months later a
 
 Platinum support contract available with a pledge of $8,900 USD or higher on [Kickstarter.com](https://kickstarter.com). [Other licensing options](/kickstarter) (without support benefits) are available at a lower price.
 
-Purchaser must create an account on Kickstarter.com prior to placing the order on June 1st. Orders may only be placed via credit card or debit card. If we do not reach our Kickstarter goal of $38,000, your cards will not be charged and your orders will be cancelled.
+Purchaser must create an account on Kickstarter.com prior to placing the order on June 1st. Orders may only be placed via credit card or debit card. If we do not reach our Kickstarter goal of $50,000, your cards will not be charged and your orders will be cancelled.
 
 Terms shall be similar to [ImageResizer's Silver Tier](http://imageresizing.net/support/contracts/silver).
 
