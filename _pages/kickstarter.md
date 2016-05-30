@@ -28,6 +28,7 @@ We need support in order to make this happen.  If we get enough money in pledges
 #### $25 or more
 
 > Early access to binary releases. Expect libimageflow and imageflow-tool alphas within 45 days. 
+> 
 > The right to use imageflow-server and libimageflow in your closed-source non-commercial (no ads or commerce) website. Use in open-source apps and sites is always free.
 >
 > 2 non-commercial wildcard domain licenses (1 for staging, 1 for production).
