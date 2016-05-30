@@ -7,8 +7,6 @@ excerpt: June 1st, 2016
 
 ---
 
-
-
 ### Our Goal
 
 The problem that we are trying to fix is a huge one - it infiltrates every aspect of web browsing, and has insidious consequences for businesses and artists alike.  Resizing images shouldn't be so complicated, but to date we have yet to see open-source software that adequately addresses the issues of speed, photo quality and server security.  Imageflow will be the software that changes that.
@@ -22,58 +20,43 @@ This would seriously benefit artists as well.  For many artists, the internet is
 
 ### Why back our Kickstarter?
 
-We need support in order to make this happen.  If we get enough money in pledges, we will be able to push forward with Imageflow and create a product that will significantly improve the internet and user experience.  If we reach $200,000, we'll license Imageflow as GPL so that it can be bundled with WordPress for free, potentially fixing 25% of the internet! We'll release as MIT/Apache if we reach $500,00.  In addition, there are some pretty stellar rewards for backing us now (see Reward Tiers below).  Everything is 40% off across the board, and there are some special deals (including unlimited lifetime licenses!) that will only be available during the Kickstarter period.
+We need support in order to make this happen.  If we get enough money in pledges, we will be able to push forward with Imageflow and create a product that will significantly improve the internet and user experience.  If we reach $200,000, we'll license Imageflow as GPL so that it can be bundled with WordPress for free, potentially fixing 25% of the internet! We'll release as MIT/Apache if we reach $500,000.  In addition, there are some pretty stellar rewards for backing us now (see Reward Tiers below).  Everything is minimum 40% off across the board, and there are some special deals (including unlimited lifetime licenses!) that will only be available during the Kickstarter period.
 
 ### Reward Tiers
 
-#### $5 or more
-
-> Feel good knowing that you have helped our campaign, and gain the opportunity to vote for the next set of libimageflow bindings.  Choose from: Node, Python, Rust, Elixr, Go, PHP, Java, or C# (Note: Ruby bindings are already in progress).  For PHP, Java, and C#, add 90 days delivery time (all languages can use the imageflow-server REST API; voting only affects library bindings).
->
-> libimageflow and imageflow-server are licensed under the AGPLv3 by default.
->
-> All reward tiers can vote.
-
-Estimated delivery:
-Nov 2017
 
 #### $25 or more
 
-> 1 non-commercial wildcard domain license for libimageflow and imageflow-server.
+> Early access to binary releases. Expect libimageflow and imageflow-tool alphas within 45 days. 
+> The right to use imageflow-server and libimageflow in your closed-source non-commercial (no ads or commerce) website. Use in open-source apps and sites is always free.
 >
-> 3 year license validity. SaaS usage not included.
+> 2 non-commercial wildcard domain licenses (1 for staging, 1 for production).
+> 
+> 3-year license validity. Closed-source redistribution and SaaS usage not included. Est. retail $185.
 >
-> This license will be provided as an add-on when you pledge $25 extra in any reward tier category.
-
-Estimated delivery:
-Aug 2017
-
-#### $65 or more 
-*limited supply available
-
-> 5 non-commercial wildcard domain licenses for libimageflow and imageflow-server.
->
-> 3 year license validity. SaaS usage not included.
-
+> Pledge $25 more in any reward tier, and this will be provided as an add-on.  Pledge any multiple of $25 and we will provide the respective number of non-commercial licenses!
 
 Estimated delivery:
 Aug 2017
 
 #### $215 or more
 
-> 2 commercial wildcard domain licenses for libimageflow and imageflow-server.
+> Early access to binary releases. 
 >
-> 2 year license validity. SaaS usage not included.  Est. retail $498
-
+> The right to use Imageflow-server and libimageflow in your closed-source website.>
+> 2 commercial wildcard domain licenses (1 for staging, 1 for production).
+>
+> 2-year license validity.  Closed-source redistribution and SaaS usage not included.  Est. retail $498
+ 
 Estimated delivery:
 Aug 2017
 
 #### $498 or more
-*limited supply available
+*limited supply available!
 
 > Enterprise-wide license to libimageflow and imageflow-server. No domain count restriction!
 >
-> SaaS usage not included. 2 year license validity. Est. retail $849.
+> Closed-source redistribution and SaaS usage not included. 2-year license validity. Est. retail $849.
 
 Estimated delivery:
 Aug 2017
@@ -96,11 +79,11 @@ Estimated delivery:
 Nov 2017
 
 #### $999 or more
-*limited supply available
+*limited supply available!
 
 > Kickstarter Exclusive!
 >
-> Enterprise-wide, unlimited domain license to libimageflow and imageflow-server. 
+> Enterprise-wide, unlimited domain, lifetime license to libimageflow and imageflow-server. 
 > Any and all future releases included!
 >
 > No version or domain count restriction. OEM/SaaS license not included. Not available after Kickstarter ends.
@@ -112,26 +95,14 @@ Nov 2017
 Estimated delivery:
 Nov 2017
 
-#### $1,800 or more
-
-> OEM Redistribution license PLUS enterprise-wide, unlimited domain license. 
-> 2 year license duration.
->
-> SaaS usage not included.   
->
-> Includes 4 hours of consultation.
-
-Estimated delivery:
-Aug 2017
-
 #### $2,900 or more
-*limited supply available
+*limited supply available!
 
 > Imageflow Silver Support Contract - 6mo
 >
 > We'll provide you with 10 hours of consultation and integration assistance. Unlimited business-hours support. 1 emergency support incident.
 >
-> Support contract duration shall begin before November 2017 (timed per customer request) and shall not exceed six months. This also includes a 1 year OEM, SaaS, and enterprise-wide license.
+> Support contract duration shall begin November 1st, 2016 (or up to 6 months later by customer request), and shall not exceed six months in duration without renewal. This also includes 1-year OEM, SaaS, and enterprise-wide licenses.
 
 Estimated delivery:
 Nov 2017
@@ -146,23 +117,25 @@ Nov 2017
 >
 > Unlimited business-hours support. 1 emergency support incident.
 > 
-> Support contract duration shall begin on July 1, 2016 (or up to 3 months later at customer request) and shall not exceed 18 months. This also includes 2 year OEM, SaaS, and enterprise-wide licenses to both Imageflow and ImageResizer.
+> Support contract duration shall begin on July 1, 2016 (or up to 3 months later at customer request) and shall not exceed 18 months. This also includes 2-year OEM, SaaS, and enterprise-wide licenses to both Imageflow and ImageResizer.
 
 Estimated delivery:
-Jul 2016
+July 2016
 
 #### $10,000
 
 > Imageflow Platinum Plus Integration Contract - 12mo
 >
-> We'll provide you with up to 60 hours of **on-site** or remote consultation and integration assistance. Unlimited business-hours support. 10 emergency support incidents.
+> Get an end-to-end managed integration of imageflow into your product, service, or infrastructure. Includes up to 60 hours of **on-site** or remote consultation and integration assistance. 
 >
-> Includes 2 year SaaS, OEM, and enterprise-wide licenses.
+> Unlimited business-hours support and 10 emergency support incidents.
 >
-> Support contract duration shall begin on February 28, 2017 (or earlier by customer request) and shall not exceed twelve months.
+> Includes 2-year SaaS, OEM redistribution, and enterprise-wide licenses.
+>
+> Support contract duration shall begin October 1st, 2016 (or up to 6 months later by customer request), and shall not exceed twelve months.
 
 Estimated delivery:
-Apr 2017
+Oct 2016
 
 
 
