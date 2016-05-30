@@ -44,7 +44,8 @@ Aug 2017
 
 > Early access to binary releases. 
 >
-> The right to use Imageflow-server and libimageflow in your closed-source website.>
+> The right to use Imageflow-server and libimageflow in your closed-source website.
+>
 > 2 commercial wildcard domain licenses (1 for staging, 1 for production).
 >
 > 2-year license validity.  Closed-source redistribution and SaaS usage not included.  Est. retail $498
