@@ -22,7 +22,7 @@ This would seriously benefit artists as well.  For many artists, the internet is
 
 ### Why back our Kickstarter?
 
-We need support in order to make this happen.  If we get enough money in pledges, we will be able to push forward with Imageflow and create a product that will significantly improve the internet and user experience.  If we reach $200,000, we'll license Imageflow as GPL so that it can be bundled with WordPress for free, potentially fixing 25% of the internet! We'll release as MIT/Apache if we reach $500,00.  In addition, there are some pretty stellar rewards for backing us now (see Reward Tiers below).  Everything is 40% off across the board, and there are some special deals (including unlimited lifetime licenses!) that will only be available during the Kickstarter period.
+We need support in order to make this happen.  If we get enough money in pledges, we will be able to push forward with Imageflow and create a product that will significantly improve the internet and user experience.  If we reach $200,000, we'll license Imageflow as GPL so that it can be bundled with WordPress for free, potentially fixing 25% of the internet! We'll release as MIT/Apache if we reach $500,000.  In addition, there are some pretty stellar rewards for backing us now (see Reward Tiers below).  Everything is 40% off across the board, and there are some special deals (including unlimited lifetime licenses!) that will only be available during the Kickstarter period.
 
 ### Reward Tiers
 
