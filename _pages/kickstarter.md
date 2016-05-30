@@ -38,7 +38,7 @@ We need support in order to make this happen.  If we get enough money in pledges
 > Pledge $25 more in any reward tier, and this will be provided as an add-on.  Pledge any multiple of $25 and we will provide the respective number of non-commercial licenses!
 
 Estimated delivery:
-Aug 2017
+October 2017
 
 #### $215 or more
 
@@ -51,7 +51,7 @@ Aug 2017
 > 2-year license validity.  Closed-source redistribution and SaaS usage not included.  Est. retail $498
  
 Estimated delivery:
-Aug 2017
+October 2017
 
 #### $498 or more
 *limited supply available!
@@ -61,7 +61,7 @@ Aug 2017
 > Closed-source redistribution and SaaS usage not included. 2-year license validity. Est. retail $849.
 
 Estimated delivery:
-Aug 2017
+August 2017
 
 #### $600 or more
 
@@ -78,7 +78,7 @@ Aug 2017
 > Includes 1 hour of consultation.
 
 Estimated delivery:
-Nov 2017
+August 2017
 
 #### $999 or more
 *limited supply available!
@@ -88,26 +88,30 @@ Nov 2017
 > Enterprise-wide, unlimited domain, lifetime license to libimageflow and imageflow-server. 
 > Any and all future releases included!
 >
-> No version or domain count restriction. OEM/SaaS license not included. Not available after Kickstarter ends.
->
 > This tier includes all benefits provided by all of the lower tiers (excluding the small business SaaS/OEM license).
 > 
 > Includes 1 hour of consultation.
+>
+> No version or domain count restriction. OEM/SaaS license not included. Not available after Kickstarter ends.
 
 Estimated delivery:
-Nov 2017
+August 2017
 
 #### $2,900 or more
 *limited supply available!
 
 > Imageflow Silver Support Contract - 6mo
 >
-> We'll provide you with 10 hours of consultation and integration assistance. Unlimited business-hours support. 1 emergency support incident.
+> We'll provide you with 10 hours of consultation and integration assistance. 
+> 
+> Unlimited business-hours support. 1 emergency support incident.
 >
-> Support contract duration shall begin November 1st, 2016 (or up to 6 months later by customer request), and shall not exceed six months in duration without renewal. This also includes 1-year OEM, SaaS, and enterprise-wide licenses.
+> Support contract duration shall begin November 1st, 2016 (or up to 6 months later by customer request), and shall not exceed six months in duration without renewal. 
+> 
+> Includes 1-year OEM redistribution, SaaS, and enterprise-wide licenses.
 
 Estimated delivery:
-Nov 2017
+November 2016
 
 #### $8,900 or more
 
@@ -119,7 +123,9 @@ Nov 2017
 >
 > Unlimited business-hours support. 1 emergency support incident.
 > 
-> Support contract duration shall begin on July 1, 2016 (or up to 3 months later at customer request) and shall not exceed 18 months. This also includes 2-year OEM, SaaS, and enterprise-wide licenses to both Imageflow and ImageResizer.
+> Support contract duration shall begin on July 1, 2016 (or up to 3 months later at customer request) and shall not exceed 18 months. 
+> 
+> Includes 2-year OEM redistribution, SaaS, and enterprise-wide licenses to both Imageflow and ImageResizer.
 
 Estimated delivery:
 July 2016
@@ -138,7 +144,6 @@ July 2016
 
 Estimated delivery:
 Oct 2016
-
 
 
 
