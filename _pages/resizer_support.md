@@ -1,6 +1,6 @@
 ---
 key: 8
-title: ImageResizer Transitonal Support
+title: ImageResizer Support
 permalink: /resizer_support/
 options: nolanding
 excerpt: 18 month Platinum Tier avail. June 1st-June 27th

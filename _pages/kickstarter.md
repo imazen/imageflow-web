@@ -1,28 +1,42 @@
 ---
 key: 5
-title: Kickstarter
+title: Kickstarter Rewards
 permalink: /kickstarter/
 options: nolanding
 excerpt: June 1st, 2016
 
 ---
 
-### Our Goal
+Imageflow brings correct image and art handling to all major languages and server platforms. It's the first solution to offer uncompromising security and visual quality - but it also **trounces competitors in benchmarks**.
 
-The problem that we are trying to fix is a huge one - it infiltrates every aspect of web browsing, and has insidious consequences for businesses and artists alike.  Resizing images shouldn't be so complicated, but to date we have yet to see open-source software that adequately addresses the issues of speed, photo quality and server security.  Imageflow will be the software that changes that.
+It lets millions of websites and applications fix the [weakest link in their server security](https://imagetragick.com/) and will enable new ventures that require **instant on-the-fly image processing**.
 
-### Who would benefit from imageflow?
+Imageflow-server can be deployed to the cloud in just a few clicks, and can be used by editing URLs in your browser or by using the REST APIs. Imageflow-server sends the right number of pixels based on your device size, and can cut load time in half for responsive websites that haven't yet implemented responsive images. Reducing site load time is often the cheapest way to boost sales and SEO ranking.
 
-The simple answer here is anyone who utilizes images on their website, particularly when image quality is emphasized.  Imagine your customers are trying to log on to your website to make a purchase, but their browser is bogged down with over-sized images and nothing will load fast enough.  Think of all the missed sale opportunities!  
+There's also libimageflow which is *designed* for direct use from all FFI-capable langauges, and which works on all major server platforms. **You can use Imageflow with your current tech stack**.
 
-This would seriously benefit artists as well.  For many artists, the internet is the medium through which they make the most sales.  But if the photo quality is jeopardized during resizing, it is going to be a lot harder to convince people to make the purchase.
+### Why Back our Kickstarter?
+
+* It's the **only** way to get a **lifetime company-wide license to all imageflow versions, forever** ($999).
+* Licenses are **41%, 56%, and 85% off**. You'll pay up to **7 times more if you buy later**.
+* For just $600 (instead of $2,900) you can sell a hosted version of imageflow-server. This ultimate redistribution and SaaS license is restricted to B Corps or small businesses that meet the revenue limits.
+* If you're an [ImageResizer](https://imageresizing.net) user, [the Transitional Support Contract is the **only way to purchase paid support**](/resizer_support)
+* It's the best way to get 1-on-1 consultation and support. 
+* It's the fastest way to remove the liability of ImageMagick from your infrastructure. Support and transition assistance is heavily discounted via the Kickstarter.
+
+**Imageflow can't happen without your support**. We've invested 4 years and over $100,000 in solving the hardest problems specifically for imageflow. We now face a long list of clearly defined tasks with known solutions, but need your help to complete imageflow and bring it to to your platform and tools.
+
+### Goals
+
+It's crucial that we ensure a **sustainable model for security maintenance**, so imageflow will remain copylefted until everyone helps promote the project and we reach a funding level that can guarantee long-term support.
+
+* **$50,000** (expenses only) Proceeds will cover our hardware, software, and hosting expenses for the next year of development, and fund collaboration with some of the world's best compression and optimization experts. *At this funding level, Imazen covers all in-house labor costs* and Imageflow will be licensed as AGPLv3 with commercial options.
+* **$125,000** - Support contracts for Imageflow will be made available on an ongoing basis, even after the Kickstarter ends. Official C# bindings & Core CLR support will also be guaranteed at this level.
+* **$200,000** - We create official PHP bindings and integrate libimageflow with Wordpress. Imageflow becomes GPLv2 + GPLv3 dual licensed so it can be distributed with Wordpress. GPL licensing would make commercial SaaS licenses redundant.
+* **$500,000** - We relicense Imageflow as MIT/Apache 2 so **it can be redistributed with every platform, language, tool and CMS**. This level funds extended codec research and optimization, with potential 2x performance increases. *Apache 2 licensing would make all commercial licenses redundant*. 
 
 
-### Why back our Kickstarter?
-
-We need support in order to make this happen.  If we get enough money in pledges, we will be able to push forward with Imageflow and create a product that will significantly improve the internet and user experience.  If we reach $200,000, we'll license Imageflow as GPL so that it can be bundled with WordPress for free, potentially fixing 25% of the internet! We'll release as MIT/Apache if we reach $500,000.  In addition, there are some pretty stellar rewards for backing us now (see Reward Tiers below).  Everything is minimum 40% off across the board, and there are some special deals (including unlimited lifetime licenses!) that will only be available during the Kickstarter period.
-
-### Reward Tiers
+## Reward Tiers
 
 
 #### $25 or more
@@ -92,7 +106,9 @@ August 2017
 > 
 > Includes 1 hour of consultation.
 >
-> No version or domain count restriction. OEM/SaaS license not included. Not available after Kickstarter ends.
+> No version or domain count restriction. OEM/SaaS license not included. 
+> 
+> Not available after Kickstarter ends.
 
 Estimated delivery:
 August 2017
