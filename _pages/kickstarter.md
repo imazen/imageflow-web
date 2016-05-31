@@ -28,7 +28,7 @@ There's also libimageflow which is *designed* for direct use from all FFI-capabl
 
 ### Goals
 
-It's crucial that we ensure a **sustainable model for security maintenance**, so imageflow will remain copylefted until we reach a funding level that can guarantee long-term support for you, our customers. Your help in promoting this Kickstarter is essential to its success. 
+It's crucial that we ensure a **sustainable model for security maintenance**, so imageflow will remain copylefted until we reach a funding level that can guarantee long-term support for you, our customers. **Your help in promoting this Kickstarter is essential to its success**. 
 
 * **$50,000** (expenses only) Proceeds will cover our hardware, software, and hosting expenses for the next year of development, and fund collaboration with some of the world's best compression and optimization experts. *At this funding level, Imazen covers all in-house labor costs* and Imageflow will be licensed as AGPLv3 with commercial options.
 * **$125,000** - Support contracts for Imageflow will be made available on an ongoing basis, even after the Kickstarter ends. Official C# bindings & Core CLR support will also be guaranteed at this level.
@@ -41,6 +41,7 @@ All backers get early access to binary releases and regular updates about the pr
 
 * **July 15th, 2016 (alpha release of libimageflow)** You'll be able to experiment with a command-line version of imageflow before the end of July. This will let you verify libimageflow meets your needs - and give us immediate feedback if it doesn't. 
 * **July 1st, 2016** ImageResizer to Imageflow Transitional Support Contracts begin (18mo, Platinum tier).
+* **September 1st, 2016** Clock starts on timed licenses (if we have a usable beta – otherwise the clock starts when a usable beta is released).  
 * **October 1st, 2016** Imageflow Platinum Plus Integration Contracts begin (12mo, Platinum Plus).
 * **November 1st, 2016** Imageflow Silver Support Contracts begin (6mo).
 * **August 1st, 2017 (stable release of imageflow-server and libimageflow)** Official Ruby and Node bindings for libimageflow will be available at the this time. 
@@ -96,7 +97,7 @@ August 2017
 >
 > This includes an enterprise-wide license, SaaS license, and OEM redistribution license.
 >
-> These licenses are valid for two years or until your organization exceeds a certain amount in gross quarterly revenue, whichever comes first.
+> These licenses are valid for **two years** or until your organization exceeds a certain amount in gross quarterly revenue, whichever comes first. Renew at $600/yr if you're still under the limit.
 >
 > VC-backed startup quarterly limit: $20,000.   
 > Small business or self-funded startup: $100,000.   
