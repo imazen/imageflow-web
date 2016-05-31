@@ -33,11 +33,22 @@ It's crucial that we ensure a **sustainable model for security maintenance**, so
 * **$50,000** (expenses only) Proceeds will cover our hardware, software, and hosting expenses for the next year of development, and fund collaboration with some of the world's best compression and optimization experts. *At this funding level, Imazen covers all in-house labor costs* and Imageflow will be licensed as AGPLv3 with commercial options.
 * **$125,000** - Support contracts for Imageflow will be made available on an ongoing basis, even after the Kickstarter ends. Official C# bindings & Core CLR support will also be guaranteed at this level.
 * **$200,000** - We create official PHP bindings and integrate libimageflow with Wordpress. Imageflow becomes GPLv2 + GPLv3 dual licensed so it can be distributed with Wordpress. GPL licensing would make commercial SaaS licenses redundant.
-* **$500,000** - We relicense Imageflow as MIT/Apache 2 so **it can be redistributed with every platform, language, tool and CMS**. This level funds extended codec research and optimization, with potential 2x performance increases. *Apache 2 licensing would make all commercial licenses redundant*. 
+* **$500,000** - We immediately relicense Imageflow as MIT/Apache 2 so **it can be redistributed with every platform, language, tool and CMS**. This level funds extended codec research and optimization, with potential 2x performance increases. *Apache 2 licensing would make all commercial licenses redundant*. 
 
+### Delivery schedule
+
+All backers get early access to binary releases and regular updates about the project. We're developing with transparency, in the open, at [github.com/imazen/imageflow](https://github.com/imazen/imageflow).
+
+* **July 15th, 2016 (alpha release of libimageflow)** You'll be able to experiment with a command-line version of imageflow before the end of July. This will let you verify libimageflow meets your needs - and give us immediate feedback if it doesn't. 
+* **July 1st, 2016** ImageResizer to Imageflow Transitional Support Contracts begin (18mo, Platinum tier).
+* **October 1st, 2016** Imageflow Platinum Plus Integration Contracts begin (12mo, Platinum Plus).
+* **November 1st, 2016** Imageflow Silver Support Contracts begin (6mo).
+* **August 1st, 2017 (stable release of imageflow-server and libimageflow)** Official Ruby and Node bindings for libimageflow will be available at the this time. 
+* **October 1st, 2017** Everyone has their license keys, and license key enforcement is enabled.
+* **December 1st, 2017** We deliver official C# bindings (if we hit the $125k stretch goal). 
+* **January 1st, 2017** We deliver official PHP bindings (if we hit the $200k stretch goal). 
 
 ## Reward Tiers
-
 
 #### $25 or more
 
@@ -49,7 +60,9 @@ It's crucial that we ensure a **sustainable model for security maintenance**, so
 > 
 > 3-year license validity. Closed-source redistribution and SaaS usage not included. Est. retail $185.
 >
-> Pledge $25 more in any reward tier, and this will be provided as an add-on.  Pledge any multiple of $25 and we will provide the respective number of non-commercial licenses!
+> Pledge $25 more in any reward tier, and this will be provided as an add-on.  
+> 
+> Pledge any multiple of $25 and we will provide the respective number of non-commercial licenses!
 
 Estimated delivery:
 October 2017
