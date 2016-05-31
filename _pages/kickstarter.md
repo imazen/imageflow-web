@@ -20,15 +20,15 @@ There's also libimageflow which is *designed* for direct use from all FFI-capabl
 * It's the **only** way to get a **lifetime company-wide license to all imageflow versions, forever** ($999).
 * Licenses are **41%, 56%, and 85% off**. You'll pay up to **7 times more if you buy later**.
 * For just $600 (instead of $2,900) you can sell a hosted version of imageflow-server. This ultimate redistribution and SaaS license is restricted to B Corps or small businesses that meet the revenue limits.
-* If you're an [ImageResizer](https://imageresizing.net) user, [the Transitional Support Contract is the **only way to purchase paid support**](/resizer_support)
-* It's the best way to get 1-on-1 consultation and support. 
+* If you're an [ImageResizer](https://imageresizing.net) user, the [Transitional Support Contract is the **only way to purchase paid support**](/resizer_support).
+* It's the best (and cheapest) way to get 1-on-1 consultation and support. 
 * It's the fastest way to remove the liability of ImageMagick from your infrastructure. Support and transition assistance is heavily discounted via the Kickstarter.
 
-**Imageflow can't happen without your support**. We've invested 4 years and over $100,000 in solving the hardest problems specifically for imageflow. We now face a long list of clearly defined tasks with known solutions, but need your help to complete imageflow and bring it to to your platform and tools.
+**Imageflow can't happen without your support**. We've invested 4 years and over $100,000 in solving the hardest problems specifically for Imageflow. We now face a long list of clearly defined tasks with known solutions, but need your help to complete imageflow and bring it to to your platform and tools.
 
 ### Goals
 
-It's crucial that we ensure a **sustainable model for security maintenance**, so imageflow will remain copylefted until everyone helps promote the project and we reach a funding level that can guarantee long-term support.
+It's crucial that we ensure a **sustainable model for security maintenance**, so imageflow will remain copylefted until we reach a funding level that can guarantee long-term support for you, our customers. Your help in promoting this Kickstarter is essential to its success. 
 
 * **$50,000** (expenses only) Proceeds will cover our hardware, software, and hosting expenses for the next year of development, and fund collaboration with some of the world's best compression and optimization experts. *At this funding level, Imazen covers all in-house labor costs* and Imageflow will be licensed as AGPLv3 with commercial options.
 * **$125,000** - Support contracts for Imageflow will be made available on an ongoing basis, even after the Kickstarter ends. Official C# bindings & Core CLR support will also be guaranteed at this level.
