@@ -13,7 +13,7 @@ It lets millions of websites and applications fix the [weakest link in their ser
 
 Imageflow-server can be deployed to the cloud in just a few clicks, and can be used by editing URLs in your browser or by using the REST APIs. Imageflow-server sends the right number of pixels based on your device size, and can cut load time in half for responsive websites that haven't yet implemented responsive images. Reducing site load time is often the cheapest way to boost sales and SEO ranking.
 
-There's also libimageflow which is *designed* for direct use from all FFI-capable langauges, and which works on all major server platforms. **You can use Imageflow with your current tech stack**.
+There's also libimageflow which is *designed* for direct use from all FFI-capable languages, and which works on all major server platforms. **You can use Imageflow with your current tech stack**.
 
 ### Why Back our Kickstarter?
 
