@@ -17,12 +17,12 @@ There's also libimageflow which is *designed* for direct use from all FFI-capabl
 
 ### Why Back our Kickstarter?
 
-* It's the **only** way to get a **lifetime company-wide license to all imageflow versions, forever** ($999).
 * Licenses are **41%, 56%, and 85% off**. You'll pay up to **7 times more if you buy later**.
 * For just $600 (instead of $2,900) you can sell a hosted version of imageflow-server. This ultimate redistribution and SaaS license is restricted to B Corps or small businesses that meet the revenue limits.
 * If you're an [ImageResizer](https://imageresizing.net) user, the [Transitional Support Contract is the **only way to purchase paid support**](/resizer_support).
 * It's the best (and cheapest) way to get 1-on-1 consultation and support. 
 * It's the fastest way to remove the liability of ImageMagick from your infrastructure. Support and transition assistance is heavily discounted via the Kickstarter.
+
 
 **Imageflow can't happen without your support**. We've invested 4 years and over $100,000 in solving the hardest problems specifically for Imageflow. We now face a long list of clearly defined tasks with known solutions, but need your help to complete imageflow and bring it to to your platform and tools.
 
@@ -97,7 +97,7 @@ August 2017
 >
 > This includes an enterprise-wide license, SaaS license, and OEM redistribution license.
 >
-> These licenses are valid for **two years** or until your organization exceeds a certain amount in gross quarterly revenue, whichever comes first. Renew at $600/yr if you're still under the limit.
+> These licenses are valid for **two years** or until your organization exceeds a certain amount in gross quarterly revenue, whichever comes first.
 >
 > VC-backed startup quarterly limit: $20,000.   
 > Small business or self-funded startup: $100,000.   
@@ -108,24 +108,6 @@ August 2017
 Estimated delivery:
 August 2017
 
-#### $999 or more
-*limited supply available!
-
-> Kickstarter Exclusive!
->
-> Enterprise-wide, unlimited domain, lifetime license to libimageflow and imageflow-server. 
-> Any and all future releases included!
->
-> This tier includes all benefits provided by all of the lower tiers (excluding the small business SaaS/OEM license).
-> 
-> Includes 1 hour of consultation.
->
-> No version or domain count restriction. OEM/SaaS license not included. 
-> 
-> Not available after Kickstarter ends.
-
-Estimated delivery:
-August 2017
 
 #### $2,900 or more
 *limited supply available!
