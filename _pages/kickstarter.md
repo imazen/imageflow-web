@@ -11,6 +11,8 @@ excerpt: June 1st, 2016
 
 Imageflow is the first solution to offer uncompromising security and visual quality - but it also **trounces competitors in benchmarks**. It lets millions of websites and applications fix the [weakest link in their server security](https://imagetragick.com/) and will enable new ventures that require **instant, on-the-fly image processing**.
 
+Read our [pledge to photographers, devops, designers, developers, contributors, and your business](https://www.imageflow.io/our_pledges/). 
+
 There are two components to Imageflow: imageflow-server and libimageflow.  
 
 ![](/images/imageflow-features.svg)
