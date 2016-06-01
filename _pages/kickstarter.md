@@ -9,26 +9,59 @@ excerpt: June 1st, 2016
 
 **Imageflow is open-source software which scales, edits, and optimizes images.** It's similar to our existing software, [ImageResizer](https://imageresizing.net), but is faster, produces better results, and is not bound to the Windows API. Imageflow supports Linux, Mac, and Windows – and can be used from any programming language. 
 
-Imageflow is the first solution to offer uncompromising security and visual quality - but it also **trounces competitors in benchmarks**. It lets millions of websites and applications fix the [weakest link in their server security](https://imagetragick.com/) and will enable new ventures that require **instant on-the-fly image processing**.
+Imageflow is the first solution to offer uncompromising security and visual quality - but it also **trounces competitors in benchmarks**. It lets millions of websites and applications fix the [weakest link in their server security](https://imagetragick.com/) and will enable new ventures that require **instant, on-the-fly image processing**.
 
 There are two components to Imageflow: imageflow-server and libimageflow.  
 
 ![](/images/imageflow-features.svg)
 
+### imageflow-server
 
-Imageflow-server can be deployed to the cloud in just a few clicks, and can be used by editing URLs in your browser or by using the REST APIs. Imageflow-server sends the right number of pixels based on your device size, and can cut load time in half for responsive websites that haven't yet implemented responsive images. Reducing site load time is often the cheapest way to boost sales and SEO ranking.
+Imageflow-server can be deployed to the cloud in just a few clicks, and can be used by editing URLs in your browser (right) or by using the REST APIs. Imageflow-server sends the right number of pixels based on your device size (left), and can cut load time in half for responsive websites that haven't yet implemented responsive images. Reducing site load time is often the cheapest way to boost sales and SEO ranking.
 
-![](/images/imageflow-responsive.svg)
+![](/images/imageflow-responsive.svg) &nbsp; &nbsp; &nbsp; &nbsp;  ![](/images/edit-url.gif)
 
-There's also libimageflow which is *designed* for direct use from all FFI-capable languages, and which works on all major server platforms. 
+With imageflow-server, you can map prefixes to different backend storage locations, like S3 or other HTTP servers. If you've been putting off moving to responsive images, imageflow-server will help make the transition painless.
 
-![](/images/libimageflow-direct.svg)
-
-For larger deployments, you can fully offload all imaging operations to separate servers.
+For large deployments, you can fully offload all imaging operations to separate servers.
 
 ![](/images/imageflow-server-advanced.svg)
 
-### How does this relate to ImageResizer? 
+### libimageflow
+
+libimageflow is the image library you wish your stack shipped with. It's correct, fast, safe, and has an evolvable API. It creates compact and sharp files. Its API was designed to work with even the most troublesome multi-tenant host languages. 
+
+![](/images/libimageflow-direct.svg)
+
+
+## What problems does Imageflow solve?
+
+#### Tragick Security
+
+Image toolkits and codecs are a notorious exploitation vector.
+ImageMagick is intended to be used in a sandbox. In practice, it is most often run by privileged server accounts. A recent string of vulnerabilities in ImageMagick was given the [ImageTragick](https://imagetragick.com) moniker to raise awareness prior to the hacking of many sites. Even after the ImageTragick patches, ImageMagick still has unfixed remote code execution vulnerabilities which are equally easy to exploit.  
+**Solution**  
+Imageflow puts security first by retaining a small and testable codebase, being cautious with dependencies, and making Coverity scans and Valgrind testing an automated part of the development process.
+
+#### Abysmal Visual Quality
+
+Most visual artefacts you see in images today are entirely avoidable. Decades of hacky approximations, bad mathematical and color space reasoning, and legacy compression behaviors combine to establish a very low bar for image quality.  
+**Solution**  
+With correct math and highly optimized encoders, Imageflow sets a new bar for image quality. We rebuilt everything from the ground up, performing exhaustive testing of inputs, lookup tables, and tuning parameters.
+
+#### Bloated file size
+
+Images make up the majority of bytes on most websites. Images usually average 2-3x larger than necessary for the same perceptual quality.  
+**Solution**  
+Imageflow focuses on a smaller set of highly tuned codecs, and should outperform ImageMagick by a significant margin across all file types. We're seeking licensing agreements for libimagequant and other best-in-class algorithms as well.
+
+#### Slow Processing
+
+Basic ImageMagick operations can take seconds per image. For on-demand imaging in ecommerce, there's a hard latency ceiling before you start losing customers, and it's a far lower than 1500ms.  
+**Solution**  
+There's no valid reason your web server can't deliver image quality on par with Adobe Lightroom, and do so in **8 to 200 milliseconds.** Imageflow enables that scenario. We don't need to shy away from on-the-fly image processing; we just need to focus on it and invest in our tools.
+
+### How does Imageflow relate to ImageResizer? 
 
 * Imageflow is ImageResizer's future. Without it, ImageResizer can't become cross-platform, run on .NET Core, or be deployed on Windows Server Core.
 * The Kickstarter 18-month transitional support contract (for both ImageResizer and Imageflow) is the only way to get paid ImageResizer support.
@@ -39,12 +72,12 @@ Your support in backing Imageflow will make ImageResizer 5 a reality. And if you
 
 ### What are the benefits of using Imageflow?
 
-Our promise with Imageflow is to deliver speed, security and image quality.  Features include:
+Our promise with Imageflow is to deliver security, image quality, and speed – in that order. 
 
-* libimageflow can be used directly over FFI by any mainstream language. The second component, imageflow-server, speaks HTTP – and any networked device can use it. A human can use it from their web browser by adding ?width=200to the image URL (or any of 30 other commands).
+* libimageflow can be used directly over FFI by any mainstream language. The second component, imageflow-server, speaks HTTP – and any networked device can use it. A human can use it from their web browser by adding ?width=200 to the image URL (or any of 30 other commands).
 * libimageflow has ~10x the throughput of ImageMagick, yet puts security first. It is correct, fast, and has an evolvable JSON API. Imageflow doesn’t try to be ImageMagick; it supports only the core image operations and web-safe image formats needed by most applications and websites.
 * imageflow-server offers a JSON API – You can POST a JSON operation list or graph along with multiple inputs and outputs, and the results are returned to you. libimageflow can accurately predict the cost for any operation, which permits ideal work redistribution and load balancing.
-* Imageflow supports Linux, Mac, and Windows
+* Imageflow supports Linux, Mac, and Windows.
 
 
 ### Why Back our Kickstarter?
@@ -64,7 +97,7 @@ It's crucial that we ensure a **sustainable model for security maintenance**, so
 
 * **$50,000** (expenses only) Proceeds will cover our hardware, software, and hosting expenses for the next year of development, and fund collaboration with some of the world's best compression and optimization experts. *At this funding level, Imazen covers all in-house labor costs* and Imageflow will be licensed as AGPLv3 with commercial options.
 * **$125,000** - Support contracts for Imageflow will be made available on an ongoing basis, even after the Kickstarter ends. Official C# bindings & Core CLR support will also be guaranteed at this level.
-* **$200,000** - We create official PHP bindings and integrate libimageflow with Wordpress. Imageflow becomes GPLv2 + GPLv3 dual licensed so it can be distributed with Wordpress. GPL licensing would make commercial SaaS licenses redundant.
+* **$200,000** - We create official PHP bindings and integrate libimageflow with Wordpress. Imageflow becomes GPLv2 + GPLv3 dual licensed so it can be distributed with Wordpress. *GPL licensing would make commercial SaaS licenses redundant.*
 * **$500,000** - We immediately relicense Imageflow as MIT/Apache 2 so **it can be redistributed with every platform, language, tool and CMS**. This level funds extended codec research and optimization, with potential 2x performance increases. *Apache 2 licensing would make all commercial licenses redundant*. 
 
 
@@ -136,7 +169,7 @@ August 2017
 >
 > VC-backed startup quarterly limit: $20,000.   
 > Small business or self-funded startup: $100,000.   
-> Certified B-Corp: $200,000.
+> Certified B Corp: $200,000.
 >
 > Includes 1 hour of consultation.
 
@@ -181,7 +214,7 @@ July 2016
 
 > Imageflow Platinum Plus Integration Contract - 12mo
 >
-> Get an end-to-end managed integration of Imageflow into your product, service, or infrastructure. Includes up to 60 hours of **on-site** or remote consultation and integration assistance. 
+> Get an end-to-end managed integration of imageflow into your product, service, or infrastructure. Includes up to 60 hours of **on-site** or remote consultation and integration assistance. 
 >
 > Unlimited business-hours support and 10 emergency support incidents.
 >
@@ -191,6 +224,8 @@ July 2016
 
 Estimated delivery:
 Oct 2016
+
+
 
 
 
