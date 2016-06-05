@@ -84,7 +84,7 @@ Our promise with Imageflow is to deliver security, image quality, and speed â€“Â
 
 ### Why Back our Kickstarter?
 
-* Licenses are **41%, 56%, and 85% off**. You'll pay up to **7 times more if you buy later**.
+* Licenses are **41%, 61%, and 85% off**. You'll pay up to **7 times more if you buy later**.
 * For just $600 (instead of $2,900) you can sell a hosted version of imageflow-server. This ultimate redistribution and SaaS license is restricted to B Corps or small businesses that meet the revenue limits.
 * If you're an [ImageResizer](https://imageresizing.net) user, the [Transitional Support Contract is the **only way to purchase paid support**](/resizer_support).
 * It's the best (and cheapest) way to get 1-on-1 consultation and support. 
@@ -138,7 +138,7 @@ All backers get early access to binary releases and regular updates about the pr
 Estimated delivery:
 October 2017
 
-#### $215 or more
+#### $195 or more
 
 > Early access to binary releases. 
 >

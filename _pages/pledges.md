@@ -20,7 +20,7 @@ We seek to “always do the right thing” for image quality and accuracy - by d
 
 ### OUR PLEDGE TO DEVOPS.
 
-**Security is our non-negotiable top priority.** We have automated valgrind testing of our test suite, Coverity scans, and aggressively reduce the size and complexity of our code so it can be reasoned about with ease. We will likely begin incorporating Rust into the codebase in order to have provable memory safety and correctness for the most intricate components. We aim to make in-process imaging safe and fast for everyone.
+**Security is our non-negotiable top priority.** We have automated valgrind testing of our test suite, Coverity scans, and aggressively reduce the size and complexity of our code so it can be reasoned about with ease. We will likely begin incorporating Rust into the codebase in order to have provable memory safety for the most intricate components. We aim to make in-process imaging safe and fast for everyone.
 
 Our unrivaled efficiency on commodity hardware means you can slash power consumption and (for image-heavy organizations) likely turn off the majority of your cloud servers.
 
