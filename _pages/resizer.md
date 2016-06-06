@@ -34,7 +34,7 @@ After we deliver Imageflow, we'll turn our attention to ImageResizer 5, which wi
 
 #### Save up to 85%
 
-* Licenses are **41%, 56%, and 85% off**. You'll pay up to **7 times more if you buy later**.
+* Licenses are **41%, 61%, and 85% off**. You'll pay up to **7 times more if you buy later**.
 * For just $600 (instead of $2,900) you can sell a hosted version of imageflow-server. This ultimate redistribution and SaaS license is restricted to B Corps or small businesses that meet the revenue limits.
 
 #### Paid support is exclusive to Kickstarter
