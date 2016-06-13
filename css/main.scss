@@ -24,12 +24,12 @@ $baseurl: '{{ site.baseurl }}/images';
 @mixin bgimage($width, $q) {
   #main {
   > header {
-     @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.zr.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
+     @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.imageflow.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
   }
 }
   body.landing {
     #page-wrapper {
-      @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.zr.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
+      @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.imageflow.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
     }
   }
   body.is-mobile {
@@ -40,7 +40,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
       #banner,
       .wrapper.style4 {
-        @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.zr.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
+        @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.imageflow.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
       
       }
     }
