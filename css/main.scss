@@ -10,8 +10,7 @@ $baseurl: '{{ site.baseurl }}/images';
 @import 'libs/mixins';
 
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');
-@import url(https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic);
+{% include_relative fonts.scss %}
 
 {% include_relative font-awesome.min.css %}
 
