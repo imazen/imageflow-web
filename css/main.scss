@@ -18,6 +18,94 @@ $baseurl: '{{ site.baseurl }}/images';
 
 {% include_relative vendor/disqus.css %}
 
+@import 'libs/skel';
+
+
+@mixin bgimage($width, $q) {
+  #main {
+  > header {
+     @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.zr.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
+  }
+}
+  body.landing {
+    #page-wrapper {
+      @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.zr.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
+    }
+  }
+  body.is-mobile {
+    &.landing {
+      #page-wrapper {
+        background: none;
+      }
+
+      #banner,
+      .wrapper.style4 {
+        @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("http://z.zr.io/ri/fire-umbrella-large.jpg?width=#{$width}&fastscale=true&down.colorspace=linear&format=jpg&quality=#{$q}&f.sharpen=10")'));
+      
+      }
+    }
+  }
+
+}
+
+@include bgimage(2880, 80);
+
+
+
+@media (max-width: 2000px)  {
+    @include bgimage(2000, 90);
+}
+@media (max-width: 1600px)  {
+    @include bgimage(1600, 90);
+}
+@media (max-width: 1024px)  {
+    @include bgimage(1024, 90);
+}
+@media (max-width: 800px)  {
+    @include bgimage(800, 90);
+}
+@media (max-width: 640px)  {
+    @include bgimage(640, 90);
+}
+@media (max-width: 480px)  {
+    @include bgimage(480, 90);
+}
+@media (max-width: 330px)  {
+    @include bgimage(330, 90);
+}
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+
+
+  @include bgimage(2880, 80);
+  @media (max-width: 1024px)  {
+      @include bgimage(2048, 80);
+  }
+  @media (max-width: 800px)  {
+      @include bgimage(1600, 80);
+  }
+  @media (max-width: 640px)  {
+      @include bgimage(1280, 80);
+  }
+  @media (max-width: 480px)  {
+      @include bgimage(960, 80);
+  }
+  @media (max-width: 330px)  {
+      @include bgimage(660, 80);
+  }
+
+
+  
+}
+
+
 
 
 /*
@@ -26,7 +114,6 @@ $baseurl: '{{ site.baseurl }}/images';
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-@import 'libs/skel';
 
 @include skel-breakpoints((
 	xlarge: '(max-width: 1680px)',
@@ -36,6 +123,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	xsmall: '(max-width: 480px)',
 	dinky: '(max-width: 260px)'
 ));
+
 
 @include skel-layout((
 	reset: 'full',
@@ -1983,7 +2071,6 @@ body.is-loading {
 #main {
 	> header {
 		@include padding(12em, 0);
-		@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("#{$baseurl}/fire-umbrella-large.jpg")'));
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -2108,7 +2195,6 @@ body.is-mobile {
 
 body.landing {
 	#page-wrapper {
-		@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("#{$baseurl}/fire-umbrella-large.jpg")'));
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -2129,7 +2215,6 @@ body.is-mobile {
 
 		#banner,
 		.wrapper.style4 {
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("#{$baseurl}/fire-umbrella-large.jpg")'));
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;
