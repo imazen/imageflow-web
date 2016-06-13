@@ -11,7 +11,7 @@ version: 3.0.3
 # (Using that method instead of site.owner, in case your posts get cloned with your repo.)
 
 # Site settings
-title: libimageflow & imageflow-server
+title: imageflow = libimageflow + imageflow-server
 description: respect the pixels
 owner:
   name: Imazen # or company name
