@@ -139,6 +139,7 @@ Estimated delivery:
 October 2017
 
 #### $89 or more
+*limited supply available!
 
 > Kickstarter exclusive for small businesses! Use imageflow-server and libimageflow in your closed-source website.
 >
@@ -153,6 +154,7 @@ October 2017
 
 
 #### $195 or more
+*limited supply available!
 
 > Early access to binary releases. 
 >
