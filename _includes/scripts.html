@@ -1,9 +1,9 @@
 <!-- Scripts -->
-<script src="{{ '/js/all-except-main-and-ie8.js' | prepend: site.baseurl }}"></script>
+<script defer src="{{ '/js/all-except-main-and-ie8.js' | prepend: site.baseurl }}"></script>
 <!--[if lte IE 8]><script src="{{ '/js/ie/respond.min.js' | prepend: site.baseurl }}"></script><![endif]-->
-<script src="{{ '/js/main.js' | prepend: site.baseurl }}"></script>{%   for include in page.script-includes %}{%     assign test1 = include | slice: 0,2 %}{%     if test1 == "//" %}
-<script src="{{ include }}"></script>{%     else %}
-<script src="{{ include | prepend: site.baseurl }}"></script>{%     endif %}{%   endfor %}{%   if page.script %}
+<script defer src="{{ '/js/main.js' | prepend: site.baseurl }}"></script>{%   for include in page.script-includes %}{%     assign test1 = include | slice: 0,2 %}{%     if test1 == "//" %}
+<script defer src="{{ include }}"></script>{%     else %}
+<script defer src="{{ include | prepend: site.baseurl }}"></script>{%     endif %}{%   endfor %}{%   if page.script %}
 <script>
 {{ page.script }} </script>
 {% endif %}{% if jekyll.environment == "production" %}
