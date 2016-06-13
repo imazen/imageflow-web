@@ -1836,6 +1836,8 @@ body.is-menu-visible {
 		@include vendor('transform', 'scale(1)');
 //		@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));
 		@include vendor('transition', ('transform 0.2s ease', 'opacity 0.2s ease'));
+
+      @include vendor('transition-delay', '0');
 		display: inline-block;
 		font-size: 1.75em;
 		opacity: 1;
