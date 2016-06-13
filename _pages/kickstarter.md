@@ -195,21 +195,23 @@ Estimated delivery:
 August 2017
 
 
-#### $2,900 or more
-*limited supply available!
-
-> Imageflow Silver Support Contract - 6mo
+#### $999 or more
+**SOLD OUT**
+> Kickstarter Exclusive!
 >
-> We'll provide you with 10 hours of consultation and integration assistance. 
-> 
-> Unlimited business-hours support. 1 emergency support incident.
+> Enterprise-wide, unlimited domain, lifetime license to libimageflow and imageflow-server. 
+> Any and all future releases included!
 >
-> Support contract duration shall begin November 1st, 2016 (or up to 6 months later by customer request), and shall not exceed six months in duration without renewal. 
+> This tier includes all benefits provided by all of the lower tiers (excluding the small business SaaS/OEM license).
 > 
-> Includes 1-year OEM redistribution, SaaS, and enterprise-wide licenses.
+> Includes 1 hour of consultation and 1 month of e-mail support. 
+>
+> No version or domain count restriction. OEM/SaaS license not included. 
+> 
+> Not available after Kickstarter ends.
 
 Estimated delivery:
-November 2016
+August 2017
 
 #### $8,900 or more
 
