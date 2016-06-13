@@ -138,6 +138,20 @@ All backers get early access to binary releases and regular updates about the pr
 Estimated delivery:
 October 2017
 
+#### $89 or more
+
+> Kickstarter exclusive for small businesses! Use imageflow-server and libimageflow in your closed-source website.
+>
+> 2 small-business commercial wildcard domain licenses (1 for staging, 1 for production).
+>
+> These licenses are valid for **two years** or until your organization exceeds $100k in gross quarterly revenue, whichever comes first.
+>
+> Closed-source redistribution and SaaS usage not included.
+
+Estimated delivery:
+October 2017
+
+
 #### $195 or more
 
 > Early access to binary releases. 
