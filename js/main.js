@@ -15,6 +15,8 @@
 			xsmall:	'(max-width: 480px)'
 		});
 
+	skel.layout({grid:true});
+
 	$(function() {
 
 		var	$window = $(window),
