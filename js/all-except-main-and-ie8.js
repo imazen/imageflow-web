@@ -7,4 +7,5 @@
 {% include_relative jquery.scrolly.min.js %}
 
 {% include_relative skel.min.js %}
+{% include_relative skel-layout.min.js %}
 {% include_relative util.js %}
