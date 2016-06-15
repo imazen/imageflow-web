@@ -29,7 +29,7 @@ Our support contract will facilitate this transition, while customizing its inte
 * 1 free emergency support incident *
 * 2 year OEM license *
 * 2 year SaaS license *
-* 2 year Enterpise license *
+* 2 year Enterprise license *
 * **20 hours of transition assistance and consulting are included.**
 
 *Provided for both ImageResizer and Imageflow.
