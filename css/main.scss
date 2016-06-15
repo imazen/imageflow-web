@@ -2346,6 +2346,23 @@ body.is-mobile {
   margin-bottom:0;
 }
 
+
+
+
+#greeting p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    border-image: none;
+}
+#greeting h4{
+	font-size:1.4em;
+	margin-bottom:1em;
+	margin-top:0em;
+	padding:0;
+	border: none;
+	border-image: none;
+}
+
 {% if site.custom_extensions == 'yes' %}
 {% include _my/custom.scss %}
 {% endif %}
