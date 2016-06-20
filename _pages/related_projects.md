@@ -75,7 +75,7 @@ We dramatically improved image scaling in LibGD (now landed in PHP!).
 We brought FreeImage to Github and added modern CI and package management. 
 We regularly share techniques with lib-vips and ImageMagick.NET
 
-But these libraries are bound by APIs that are simply unsuitable for fast web-focused image handling. We can't fix LibGD's error management, nor FreeImage's performance, lib-vips surface area, or ImageMagick's security-last approach and 1.25 million line codebase. 
+But these libraries are bound by APIs that are simply unsuitable for fast web-focused image handling. We can't fix LibGD's error management, nor FreeImage's performance/licensing, lib-vips scope/focus, or ImageMagick's security-last approach and 1.25 million line codebase. 
 
 
 
