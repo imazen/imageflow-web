@@ -18,7 +18,7 @@ These results were slightly better than those previouly published, with Imageflo
 
 At this point, I'm confident about stating a 17x speedup when scaling [this 5104x3380 image](https://s3-us-west-2.amazonaws.com/imageflow-resources/test_inputs/u1.jpg) down to 200x200, and we would expect other users to see similar gains on Xeon hardware.  
 
-We encourage pull requests to enhace our performance suite and discover cases where perf can be improved. 
+We encourage pull requests to enhance our performance suite and discover cases where perf can be improved. 
 
 ### Benchmarks via Ruby 
 
