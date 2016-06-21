@@ -36,11 +36,27 @@ Our support contract will facilitate this transition, while customizing its inte
  
 Platinum support contract shall begin on July 1, 2016 (or up to 3 months later at customer request) and shall not exceed 18 months without a renewal.
 
-Platinum support contract available with a pledge of $8,900 USD or higher on [Kickstarter.com](https://kickstarter.com). [Other licensing options](/kickstarter) (without support benefits) are available at a lower price.
+Platinum support contract available with a pledge of $8,900 USD or higher on [Kickstarter.com](https://www.kickstarter.com/projects/njones/imageflow-respect-the-pixels-a-secure-alt-to-image). [Other licensing options](https://www.kickstarter.com/projects/njones/imageflow-respect-the-pixels-a-secure-alt-to-image) (without support benefits) are available at a lower price.
 
-Purchaser must create an account on Kickstarter.com prior to placing the order. Orders may only be placed via credit card or debit card. If we do not reach our Kickstarter goal of $50,000 by June 27th, your cards will not be charged and your orders will be cancelled.
+Purchaser must create an account on Kickstarter.com prior to placing the order. Orders may only be placed via credit card or debit card. If we do not reach our Kickstarter goal of $50,000 by June 27th, your cards will not be charged and your orders will be cancelled. Purchasing support through Kickstarter grants you the same legal rights that direct purchasing does.
+
 
 Terms shall be similar to [ImageResizer's Silver Tier](http://imageresizing.net/support/contracts/silver).
 
 If you have any questions, please contact us at [support@imageresizing.net](mailto:support@imageresizing.net).
+
+### Can't pay via Kickstarter? Sign up for the Transitional Support waiting list.
+
+<form action="http://news.imazen.io/subscribe" method="POST" accept-charset="utf-8">
+  <label for="name">Name & Phone</label><br/>
+  <input type="text" name="name" id="name"/>
+  <br/>
+  <label for="email">Email</label><br/>
+  <input type="text" name="email" id="email"/>
+  <br/>
+  <input type="hidden" name="list" value="OfTuh2aGsyY3DuS4pJ43Lw"/>
+  <input type="submit" name="submit" id="submit"/>
+</form>
+
+Remember to click the confirmation link!
 
