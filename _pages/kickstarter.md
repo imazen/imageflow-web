@@ -154,7 +154,6 @@ October 2017
 
 
 #### $195 or more
-*limited supply available!
 
 > Early access to binary releases. 
 >
@@ -195,6 +194,7 @@ Estimated delivery:
 August 2017
 
 
+
 #### $999 or more
 **SOLD OUT**
 > Kickstarter Exclusive!
@@ -212,6 +212,66 @@ August 2017
 
 Estimated delivery:
 August 2017
+
+
+#### $1090 
+
+> 2-Year Enterprise Duo License for both ImageResizer Elite and Imageflow
+>
+> Enterprise-wide license to libimageflow, imageflow-server, imageflow-tool, and ImageResizer Elite Edition. No domain count restriction! No version-number restriction. ImageResizer license delivered July 1st. 
+> 
+> OEM redistribution/SaaS usage not included (See FAQ). 
+
+>
+> Includes 2 hours of consultation and 1 month of email support for transitioning to Imageflow.
+
+
+Estimated delivery:
+August 2017
+
+
+
+
+
+
+#### $1850 
+
+> Kickstarter exclusive! Only 5 available.
+>
+> Lifetime Enterprise Duo license for both ImageResizer Elite and Imageflow
+
+> 
+> This tier includes all current and future releases of Imageflow AND all current and future releases of ImageResizer.
+
+>
+> License permits enterprise-wide use (including subsidiaries!). No restriction on domain count.
+> 
+> Like an ImageResizer Elite license, but valid for all product versions, forever. ImageResizer license delivered July 1st. 
+> 
+> Includes 1 month of email support for your entire organization. 
+> 
+> OEM redistribution/SaaS usage not included (See FAQ). Not available after Kickstarter ends.
+
+Estimated Delivery:
+August 2017
+
+
+
+
+
+Lifetime Enterprise Duo license for both ImageResizer Elite and Imageflow
+
+This tier includes all current and future releases of Imageflow AND all current and future releases of ImageResizer.
+
+License permits enterprise-wide use (including subsidiaries!). No restriction on domain count.
+
+Like an ImageResizer Elite license, but valid for all product versions, forever. ImageResizer license delivered July 1st. 
+
+Includes 1 month of email support for your entire organization. 
+
+OEM redistribution/SaaS usage not included (See FAQ). Not available after Kickstarter ends.
+
+
 
 #### $8,900 or more
 
