@@ -31,7 +31,7 @@ Imageflow puts security first by retaining a small and testable codebase, being 
 
 Most visual artefacts you see in images today are entirely avoidable. Decades of hacky approximations, bad mathematical and color space reasoning, and legacy compression behaviors combine to establish a very low bar for image quality.  
 **Solution**  
-With correct math and highly optimized encoders, Imageflow sets a new bar for image quality. We rebuilt everything from the ground up, performing exhaustive testing of inputs, lookup tables, and tuning parameters.
+With correct math and highly optimized encoders, Imageflow sets a new bar for image quality. We're rebuilding everything from the ground up, performing exhaustive testing of inputs, lookup tables, and tuning parameters.
 
 #### Bloated file size
 

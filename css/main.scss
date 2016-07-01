@@ -21,6 +21,8 @@ $baseurl: '{{ site.baseurl }}/images';
 @import 'libs/skel';
 
 
+
+
 @mixin bgimage($width, $q) {
   #main {
   > header {
@@ -1877,6 +1879,8 @@ body.is-menu-visible {
 		a {
 			color: inherit;
 		}
+
+    margin-bottom:1em;
 	}
 
 	.more {
@@ -2332,13 +2336,16 @@ body.is-mobile {
   input[type='text'] {
     display: inline;
     font-size: 0.8em;
-    width: 200px;
+    width: 140px;
     line-height: 3.125em;
     height: 3.125em;
   }
 
   input[type='submit'] {
-
+    padding-left:10px;
+    padding-right:10px;
+    background-color: #D65323;
+    letter-spacing: normal;
   }
 }
 
@@ -2361,6 +2368,14 @@ body.is-mobile {
 	padding:0;
 	border: none;
 	border-image: none;
+}
+
+ul.actions_vertical li{
+  display:block;
+  text-align:center;
+  vertical-align: default;
+  padding:0;
+  margin:0;
 }
 
 {% if site.custom_extensions == 'yes' %}
