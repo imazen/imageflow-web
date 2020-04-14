@@ -12,20 +12,13 @@ excerpt: How licensing works
 ### License Terms
 
 * Everything is [AGPLv3](http://imageresizing.net/licenses/agpl) by default
-* You can license by [domain](http://imageresizing.net/licenses/domain)
-* Or by [enterprise](http://imageresizing.net/licenses/enterprise)
-* You can get a royalty-free [OEM redistribution license](http://imageresizing.net/licenses/oem)
-* You can get a royalty-free [SaaS usage license](http://imageresizing.net/licenses/saas)
-
+* Site-wide/enterprise-wide licensing will be the default commercial licensing model, similar to [ImageResizer](https://imageresizing.net/pricing). 
+* Pricing will be sliding-scale based on company size
+* OEM and SaaS licenses will be available. 
 
 We will work with both open-source and closed-source CMSes to give them custom licensing that is compatible with their existing license terms. This is far more possible than it sounds!
 
 Unlike ImageResizer, we aren't offering an Apache-licensed core. We don't want to unnecessarily segment functionality because of a business model, and this lets us offer you the best algorithms by default. 
-
-Also, unlike ImageResizer, we are offering duration-limited licenses instead of version-limited licenses. This will allow us to deliver the best improvements instead of thinking about major version numbers.       
-(**NOTE:** A limited number of unlimited-duration licenses will be offered during the Kickstarter.)
-
-If for any reason development on imageflow ceases, we will release a final update that treats all limited-duration licenses as lifetime licenses.
 
 ### How will we enforce licenses?
 
