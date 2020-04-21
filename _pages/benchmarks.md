@@ -14,6 +14,7 @@ We've updated our benchmarks to use [hyperfine](https://github.com/sharkdp/hyper
 To make them easy to reproduce, we've provided a [docker image](https://github.com/imazen/imageflow/tree/master/docker/imageflow_bench_ubuntu20). `docker run imazen/imageflow_bench_ubuntu20`
 
 ### Scaling 32 17MP jpegs down to 200x200px
+
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
 | `parallel "$HOME/bin/imageflow_tool v0.1/ir4 --in {} --out ../bench_out/{.}_200x200.jpg --command width=200&height=200&quality=90" ::: *.jpg` | 373.9 ± 30.8 | 310.0 | 409.8 | 1.00 |
