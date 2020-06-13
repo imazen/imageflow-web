@@ -11,8 +11,8 @@ version: 3.0.3
 # (Using that method instead of site.owner, in case your posts get cloned with your repo.)
 
 # Site settings
-title: imageflow = libimageflow + imageflow-server
-description: respect the pixels
+title: Imageflow - Optimal images at incredible speeds
+description: treat your images right
 owner:
   name: Imazen # or company name
   email: support@imazen.io

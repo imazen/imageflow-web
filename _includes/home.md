@@ -1,47 +1,35 @@
-## What is imageflow?
+## Faster websites and apps
 
-**Imageflow is open-source software which scales, edits, and optimizes images.**
+Serving optimized and correctly sized images is the fastest way to a quicker, more profitable site or app. 60% of website bytes are from images<sup>[1]</sup>. 
 
-Unlike most tools, it does *not* have a visual interface; it is designed to be embedded into software like Wordpress, Ebay, Craigslist, or Facebook. 
+Imageflow edits and optimizes images so quickly you can do it on-demand. No need to manually generate every size/format combination of every image.
 
-**libimageflow can be used directly over [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) by any mainstream language**. The second component, imageflow-server, speaks HTTP – and any networked device can use it. A human can use it from their web browser by adding `?width=200` to the image URL (or any of 30 other commands). 
+If you're using ImageMagick, switch to `imageflow_tool` and get higher-quality images with smaller file sizes &mdash; up to [17x faster](https://github.com/imazen/imageflow/tree/master/docker/imageflow_bench_ubuntu20#imageflow-benchmarking-image-based-on-ubuntu-2004).
 
-**libimageflow has ~10x the throughput of [ImageMagick](https://www.imagemagick.org), yet puts security first**. It is correct, fast, and has an evolvable JSON API. Imageflow doesn't try to be ImageMagick; it supports only the core image operations and web-safe image formats needed by most applications and websites. This focus allows libimageflow to have a tiny and auditable codebase. Unsandboxed ImageMagick is an unacceptable liability for any kind of business. 
+Most people prefer on-demand image processing, as it greatly simplifies web development. 
 
-libimageflow's stateless FFI-friendly API can work with even the most troublesome multi-tenant host languages, and [is tested daily on Linux, Mac, and Windows](https://github.com/imazen/imageflow) with [Travis](https://travis-ci.org)+[Conan](https://conan.io), and [AppVeyor](https://appveyor.com)+Conan. libimageflow uses [Conan for consuming and prouducing native packages](https://conan.io), but we will also publish precompiled binaries for those 3 platforms.  Initial bindings will include Ruby and Node, with C# and PHP support planned.
+<div style="background-color:white;">
+<img src="https://www.imageflow.io/images/imageflow-responsive.svg" alt=""/> <img src="https://www.imageflow.io/images/edit-url.gif" alt="url editing" />
+</div>
 
-**imageflow-server exposes a REST API** – an image URL followed by a simple querystring of commands, like `http://server/prefix/image.jpg?width=200&sharpen=30`  You can map prefixes to different backend storage locations, like S3 or other HTTP servers. If you've been putting off moving to responsive images, [imageflow-server](https://www.imageflow.io) will help make the transition painless. [ImageResizer](https://imageresizing.net) already solves this for Windows servers, but is highly coupled to Windows APIs. imageflow-server will run on Linux, Mac, *and* Windows.
+<span style="font-size:60%"><sup>[1]</sup>According to the HTTP Archive, 60% of the data transferred to fetch a web page is images composed of JPEGs, PNGs and GIFs.</span>
 
-**imageflow-server offers a JSON API** – You can POST a JSON operation list or graph along with multiple inputs and outputs, and the results are returned to you. libimageflow can accurately predict the cost for any operation, which permits ideal work redistribution and load balancing. We designed imageflow with petabyte image collections in mind.
+## What else can it do?
 
---- 
+Imageflow can automatically crop away whitespace, apply sharpening, fix white balance, add watermarks, adjust contrast/saturation/brightness, make images transparent or opaque, rotate, flip, crop, resize, constrain, smart encode, and [more](https://docs.imageflow.io/).
 
-## Image management is problematic
+All operations are designed to be fast enough for on-demand use. 
 
---------------
+[Imageflow.NET Server](https://github.com/imazen/imageflow-dotnet-server) and [imageflow-server](https://github.com/imazen/imageflow) allow you to add a [query string command](https://docs.imageflow.io/querystring/introduction.html) to the end of image URLs, which allows for remarkable sophisticated processing. 
 
-#### Tragick Security
+## See the difference
 
-Image toolkits and codecs are a notorious exploitation vector. Until a few weeks ago, ImageMagick would execute bash commands written in URLs inside .svg files. 
-ImageMagick is intended to be used in a sandbox. In practice, it is most often run by privileged server accounts. A recent string of vulnerabilities in ImageMagick was given the [ImageTragick](https://imagetragick.com) moniker to raise awareness prior to the hacking of many sites.  
-**Solution**  
-Imageflow puts security first by retaining a small and testable codebase, being cautious with dependencies, and making Coverity scans and Valgrind testing an automated part of the development process.
+Unlike most image processing tools, Imageflow processing images in linear light. This means that image highlights are not destroyed when the image is down-scaled. Compare Imageflow (left) with other tools (right).
 
-#### Abysmal Visual Quality
+![imageflow](https://s3.amazonaws.com/resizer-web/pluginexamples/snowing_300_linear.jpg) ![other tools](https://s3.amazonaws.com/resizer-web/pluginexamples/snowing_300_srgb.jpg)
 
-Most visual artefacts you see in images today are entirely avoidable. Decades of hacky approximations, bad mathematical and color space reasoning, and legacy compression behaviors combine to establish a very low bar for image quality.  
-**Solution**  
-With correct math and highly optimized encoders, Imageflow sets a new bar for image quality. We're rebuilding everything from the ground up, performing exhaustive testing of inputs, lookup tables, and tuning parameters.
+## License
 
-#### Bloated file size
+Imageflow is 100% Open Source Software. You can use it freely under the terms of the [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html). 
 
-Images make up the majority of bytes on most websites. Images usually average 2-3x larger than necessary for the same perceptual quality.  
-**Solution**  
-Imageflow focuses on a smaller set of highly tuned codecs, and should outperform ImageMagick by a significant margin across all file types. We're seeking licensing agreements for libimagequant and other best-in-class algorithms as well.
-
-#### Slow Processing
-Basic ImageMagick operations can take seconds per image. For on-demand imaging in ecommerce, there's a hard latency ceiling before you start losing customers, and it's a far lower than 1500ms.  
-**Solution**  
-There's no valid reason your web server can't deliver image quality on par with Adobe Lightroom, and do so in **8 to 200 milliseconds.** Imageflow enables that scenario. We don't need to shy away from on-the-fly image processing; we just need to focus on it and invest in our tools.
-
-
+We also offer [commercial licenses](https://imageresizing.net/pricing) if you do not like the AGPLv3. 

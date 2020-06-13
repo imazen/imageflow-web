@@ -20,16 +20,15 @@
           <section id="banner">
             <div class="inner">
               <h2 style="line-height:1em"><img alt="imageflow" src="{{ site.baseurl }}/images/imageflow-white.svg" width="197" height="41" /></h2>
-              <p>{{ site.description }}</p>
-              
+              <p>treat your images right</p>
+              <p>get a faster site</p> 
 
-              
               <div class="emailme">
 
                 <ul class="actions actions_vertical">
-                  <li><a class="button special" href="https://imazen.agilecrm.com/forms/5992009395208192" >Get Updates</a></li>
-                
-                  <li style="margin-top:1em"><a href="https://github.com/imazen/imageflow" class="button">GitHub</a></li>
+                  <!-- <li><a class="button special" href="https://imazen.agilecrm.com/forms/5992009395208192" >Get Updates</a></li> --> 
+                  <li><a class="button " href="#greeting" >How Imageflow can help</a></li>
+                  <li style="margin-top:1em"><a href="#for-your-platform" class="button special">Select language/platform</a></li>
                 </div>
               
 
@@ -57,6 +56,23 @@
               </ul>
             </div>
           </section>{%           endif %}
+
+          <section id="platforms" class="wrapper style1 special">
+            <div class="inner">
+              <header class="major">
+              
+                  {% capture a %}{% include platforms.md %}{% endcapture %} 
+             {{ a | markdownify }}
+              </header>
+              <ul class="icons major">{%               for socloc in site.social limit:3 %}{%                 if socloc[1] %}{%                   if socloc[0] == 'email' %}
+                <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-envelope major style1"
+                       ><span class="label">E-mail</span></a></li>{%                   else %}
+                <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }} major style1"
+                       ><span class="label">{{ socloc[0] }}</span></a></li>{%                   endif %}{%                 endif %}{%               endfor %}
+              </ul>
+            </div>
+          </section>
+
 
         <!-- Two -->
           <section id="landing_pages" class="wrapper alt style2">{%             assign sorted_pages = site.pages | sort:"id" %}{%             for my_page in sorted_pages %}{%               if my_page.title %}{%                 unless my_page.options contains 'nolanding' %}
