@@ -34,7 +34,3 @@ Imageflow-server will offer a REST Querystring API like ImageResizer, but will a
 
 
 After we deliver Imageflow, we'll turn our attention to ImageResizer 5, which will become a thin compatibility layer over Imageflow. If you want Imageflow's benefits sooner, consider adopting Imageflow directly as it reaches a stable phase. 
-
-Our [Imageflow Kickstater ended June 28th](https://www.kickstarter.com/projects/njones/imageflow-respect-the-pixels-a-secure-alt-to-image), but we will be making new Imageflow licenses available soon. 
-
-
