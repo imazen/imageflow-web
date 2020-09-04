@@ -8,7 +8,7 @@ All language bindings support Windows, macOS, and Linux.
 #### .NET Core and .NET 5
 [Imageflow .NET Server](https://github.com/imazen/imageflow-dotnet-server) supports S3 and Azure blob storage, offers fast memory/distributed/disk caching, and is our most flexible image server.
 
-[Imageflow .NET](https://imazen/imageflow-dotnet) offers a fluent image API that can be used from any .NET Standard 2.0 language. 
+[Imageflow .NET](https://github.com/imazen/imageflow-dotnet) offers a fluent image API that can be used from any .NET Standard 2.0 language. 
 
 #### .NET Standard &mdash; [Imageflow .NET](https://imazen/imageflow-dotnet)
 &mdash;
