@@ -10,7 +10,7 @@ All language bindings support Windows, macOS, and Linux.
 
 [Imageflow .NET](https://github.com/imazen/imageflow-dotnet) offers a fluent image API that can be used from any .NET Standard 2.0 language. 
 
-#### .NET Standard &mdash; [Imageflow .NET](https://imazen/imageflow-dotnet)
+#### .NET Standard &mdash; [Imageflow .NET](https://github.com/imazen/imageflow-dotnet)
 &mdash;
 #### Node.js &mdash; [imageflow-node](https://github.com/imazen/imageflow-node)
 &mdash;
