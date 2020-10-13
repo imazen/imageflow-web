@@ -1,3 +1,4 @@
+const nodeVersion = require("./imageflow-node_versions.json");
 module.exports = {
   title: "Imageflow",
   tagline: "Imaging at scale",
@@ -16,33 +17,38 @@ module.exports = {
       },
       items: [
         {
-          label: 'Crates',
-          position: 'right',
+          type: "docsVersionDropdown",
+          position: "right",
+          // dropdownActiveClassDisabled: true,
+        },
+        {
+          label: "Crates",
+          position: "right",
           items: [
             {
-              label: 'ImageFlow Nodejs',
-              to:"imageflow-node",
+              label: "ImageFlow Nodejs",
+              to: "imageflow-node",
             },
             {
-              label: 'ImageFlow Golang',
-              to:"imageflow-go",
+              label: "ImageFlow Golang",
+              to: "imageflow-go",
             },
             {
-              label: 'ImageFlow Ruby',
-              to:"imageflow-ruby",
+              label: "ImageFlow Ruby",
+              to: "imageflow-ruby",
             },
             {
-              label: 'ImageFlow DotNet Server',
-              to:"imageflow-dotnet-server",
+              label: "ImageFlow DotNet Server",
+              to: "imageflow-dotnet-server",
             },
             {
-              label: 'ImageFlow DotNet',
-              to:"imageflow-net",
+              label: "ImageFlow DotNet",
+              to: "imageflow-net",
             },
             {
-              label: 'Libimageflow',
-              to:"libimageflow",
-            }
+              label: "Libimageflow",
+              to: "libimageflow",
+            },
             // ... more items
           ],
         },
@@ -104,53 +110,54 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
   },
-  plugins:[
+  plugins: [
     [
       "@docusaurus/plugin-content-docs",
       {
-        id:"imageflow-node",
-        path:"imageflow-node",
-        routeBasePath:"imageflow-node"
+        id: "imageflow-node",
+        path: "imageflow-node",
+        routeBasePath: "imageflow-node",
+        sidebarPath: require.resolve("./imageflow-node/sidebars.js"),
       },
     ],
     [
       "@docusaurus/plugin-content-docs",
       {
-        id:"imageflow-go",
-        path:"imageflow-go",
-        routeBasePath:"imageflow-go"
+        id: "imageflow-go",
+        path: "imageflow-go",
+        routeBasePath: "imageflow-go",
       },
     ],
     [
       "@docusaurus/plugin-content-docs",
       {
-        id:"imageflow-ruby",
-        path:"imageflow-ruby",
-        routeBasePath:"imageflow-ruby"
+        id: "imageflow-ruby",
+        path: "imageflow-ruby",
+        routeBasePath: "imageflow-ruby",
       },
     ],
     [
       "@docusaurus/plugin-content-docs",
       {
-        id:"imageflow-net",
-        path:"imageflow-net",
-        routeBasePath:"imageflow-net"
+        id: "imageflow-net",
+        path: "imageflow-net",
+        routeBasePath: "imageflow-net",
       },
     ],
     [
       "@docusaurus/plugin-content-docs",
       {
-        id:"imageflow-dotnet-server",
-        path:"imageflow-dotnet-server",
-        routeBasePath:"imageflow-dotnet-server"
+        id: "imageflow-dotnet-server",
+        path: "imageflow-dotnet-server",
+        routeBasePath: "imageflow-dotnet-server",
       },
     ],
     [
       "@docusaurus/plugin-content-docs",
       {
-        id:"libimageflow",
-        path:"libimageflow",
-        routeBasePath:"libimageflow"
+        id: "libimageflow",
+        path: "libimageflow",
+        routeBasePath: "libimageflow",
       },
     ],
   ],

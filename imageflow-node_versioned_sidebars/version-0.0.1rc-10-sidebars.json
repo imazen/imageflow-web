@@ -1,0 +1,580 @@
+{
+  "version-0.0.1rc-10/docs": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Modules",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/modules/_index_"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/modules/_job_"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/modules/_json_"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/modules/_native_"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/modules/_types_"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Classes",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_job_.nativejob"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_json_.graph"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_json_.steps"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.basestep"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.blackcolor"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.colorfiltersrgb"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.colorfiltersrgbvalue"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.colors"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.commandstring"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.constrain"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.constraingravity"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.constrainhints"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.copyrectangle"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.cropwhitespace"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.decode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.drawexactimageto"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.encode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.expandcanvas"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fillrect"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fitbox"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fitboxmargin"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fitboxpercentage"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fliph"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.flipv"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.frombuffer"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fromfile"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fromstream"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fromurl"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.gif"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.iodata"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.iooperation"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.losslesspng"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.lossypng"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.mozjpeg"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.preset"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.resample"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.region"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.regionpercentage"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.rotate180"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.rotate270"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.rotate90"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.srgbcolor"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.transparentcolor"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.watermark"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.webp"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.webplossless"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.whitebalance"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_job_.nativejob"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_json_.graph"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_json_.steps"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.basestep"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.blackcolor"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.colorfiltersrgb"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.colorfiltersrgbvalue"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.colors"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.commandstring"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.constrain"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.constraingravity"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.constrainhints"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.copyrectangle"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.cropwhitespace"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.decode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.drawexactimageto"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.encode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.expandcanvas"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fillrect"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fitbox"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fitboxmargin"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fitboxpercentage"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fliph"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.flipv"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.frombuffer"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fromfile"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fromstream"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.fromurl"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.gif"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.iodata"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.iooperation"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.losslesspng"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.lossypng"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.mozjpeg"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.preset"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.resample"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.region"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.regionpercentage"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.rotate180"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.rotate270"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.rotate90"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.srgbcolor"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.transparentcolor"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.watermark"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.webp"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.webplossless"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/classes/_types_.whitebalance"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Interfaces",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_json_.edge"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_native_.jobtype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.constrainhintsoptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.constrainoptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.drawexactimagetocoordinates"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.expandcanvasoptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.fitboxcoordinates"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.watermarkoption"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_json_.edge"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_native_.jobtype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.constrainhintsoptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.constrainoptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.drawexactimagetocoordinates"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.expandcanvasoptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.fitboxcoordinates"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/interfaces/_types_.watermarkoption"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Enums",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.colorfiltersrgbtype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.colorfiltersrgbvaluetype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.colortype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.compositingmode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.constrainmode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.direction"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.filter"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.fitmode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.resamplewhen"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.scalingfloatspace"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.sharpenwhen"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.colorfiltersrgbtype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.colorfiltersrgbvaluetype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.colortype"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.compositingmode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.constrainmode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.direction"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.filter"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.fitmode"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.resamplewhen"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.scalingfloatspace"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.0.1rc-10/enums/_types_.sharpenwhen"
+        }
+      ]
+    }
+  ]
+}
