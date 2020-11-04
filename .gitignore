@@ -62,3 +62,5 @@ Temporary Items
 
 node_modules
 .docusaurus
+
+build
