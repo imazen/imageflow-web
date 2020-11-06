@@ -5,24 +5,19 @@ module.exports = {
   url: "https://imageflow.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  favicon: "img/imazen.png",
+  organizationName: "imazen", // Usually your GitHub org/user name.
+  projectName: "imageflow-web", // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: "My Site",
+      title: "Imazen",
       logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg",
+        alt: "Imazen Logo",
+        src: "img/imazen.png",
       },
       items: [
         {
-          type: "docsVersionDropdown",
-          position: "right",
-          // dropdownActiveClassDisabled: true,
-        },
-        {
-          label: "Crates",
+          label: "Libraries",
           position: "right",
           items: [
             {
@@ -64,15 +59,19 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Links",
           items: [
             {
-              label: "Style Guide",
-              to: "docs/",
+              label: "imageflow-node",
+              to: "/imageflow-node/modules/_index_",
             },
             {
-              label: "Second Doc",
-              to: "docs/doc2/",
+              label: "Licensing",
+              to: "/licensing",
+            },
+            {
+              label: "Pledges",
+              to: "/pledges",
             },
           ],
         },
@@ -81,15 +80,11 @@ module.exports = {
           items: [
             {
               label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              href: "https://stackoverflow.com/questions/tagged/imageflow",
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              href: "https://twitter.com/imazenllc",
             },
           ],
         },
@@ -102,12 +97,12 @@ module.exports = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/imazen/imaflow",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Imazen, Inc. Built with Docusaurus.`,
     },
   },
   plugins: [
@@ -167,6 +162,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          routeBasePath: "/",
           // Please change this to your repo.
           editUrl:
             "https://github.com/facebook/docusaurus/edit/master/website/",
