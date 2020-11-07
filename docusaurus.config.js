@@ -6,8 +6,8 @@ module.exports = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   favicon: "img/imazen.png",
-  organizationName: "imazen", // Usually your GitHub org/user name.
-  projectName: "imageflow-web", // Usually your repo name.
+  organizationName: "imazen",
+  projectName: "imageflow-web",
   themeConfig: {
     navbar: {
       title: "Imazen",
@@ -67,11 +67,11 @@ module.exports = {
             },
             {
               label: "Licensing",
-              to: "/licensing",
+              to: "/about/licensing",
             },
             {
               label: "Pledges",
-              to: "/pledges",
+              to: "/about/pledges",
             },
           ],
         },
@@ -153,6 +153,7 @@ module.exports = {
         id: "libimageflow",
         path: "libimageflow",
         routeBasePath: "libimageflow",
+        sidebarPath: require.resolve("./libimageflow/sidebars.js"),
       },
     ],
   ],
@@ -162,16 +163,10 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          routeBasePath: "/",
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
+          routeBasePath: "/about",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/blog/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

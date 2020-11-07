@@ -67,7 +67,7 @@ function Home() {
                 "button button--outline button--secondary button--lg",
                 styles.getStarted
               )}
-              to={useBaseUrl("/imageflow")}
+              to={useBaseUrl("/about/imageflow")}
             >
               Read More
             </Link>
