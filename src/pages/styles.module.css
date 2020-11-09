@@ -35,3 +35,18 @@
   height: 200px;
   width: 200px;
 }
+
+:root {
+  --ifm-container-width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+.item {
+  margin: 2px;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--ifm-color-emphasis-alpha-05);
+}
