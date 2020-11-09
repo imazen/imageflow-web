@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 
 import styles from "./styles.module.css";
@@ -9,18 +10,27 @@ export default function () {
     <Layout>
       <div className="container">
         <div className="row">
+          <h1 className="heading">Demo for Imageflow Query API</h1>
+          <p>
+            This demo uses a Vercel function as a middleware between AWS bucket
+            and client. The image a manuplated based on the Query String. Vercel
+            function uses <Link to={"/imageflow-node"}>imageflow-node</Link>.
+          </p>
+        </div>
+        <div className="row">
           <div className="col col--9">
             <div className="row">
-              <h1>Result</h1>
+              <h2 className={styles.heading}>Result</h2>
             </div>
-            <img
-              src={`https://imageflow-now-two.now.sh/api/imageflow/s3/us-west-1/imageflow-vercel/test.jpg?${query}`}
-            />
+            <div style={{ overflow: "auto" }}>
+              <img
+                src={`https://imageflow-now-two.now.sh/api/imageflow/s3/us-west-1/imageflow-vercel/test.jpg?${query}`}
+              />
+            </div>
           </div>
           <div className="col col--3">
-            <div className="row">
-              <h1>Enter Query</h1>
-            </div>
+            <h2 className={styles.heading}>Enter Query</h2>
+
             <div className="row">
               <textarea
                 rows={10}
@@ -30,9 +40,9 @@ export default function () {
               >
                 {query}
               </textarea>
-              <div className="row">
-                <h2>Common Operation</h2>
-              </div>
+
+              <h2 className={styles.heading}>Common Operation</h2>
+
               <div
                 class="button button--primary button--block"
                 onClick={() => setQuery("width=200&hieght=200")}

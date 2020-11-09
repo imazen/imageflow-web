@@ -48,6 +48,7 @@ module.exports = {
           ],
         },
         { to: "blog", label: "Blog", position: "left" },
+        { to: "demo", label: "Demo", position: "left" },
         {
           href: "https://github.com/imazen/",
           label: "GitHub",

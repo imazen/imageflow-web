@@ -36,10 +36,6 @@
   width: 200px;
 }
 
-:root {
-  --ifm-container-width: 100%;
-}
-
 textarea {
   width: 100%;
 }
@@ -49,4 +45,10 @@ textarea {
   width: 100%;
   padding: 10px;
   background-color: var(--ifm-color-emphasis-alpha-05);
+}
+
+.heading {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
 }
