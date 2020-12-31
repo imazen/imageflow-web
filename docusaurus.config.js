@@ -10,10 +10,10 @@ module.exports = {
   projectName: "imageflow-web",
   themeConfig: {
     navbar: {
-      title: "Imazen",
       logo: {
-        alt: "Imazen Logo",
-        src: "img/imazen.png",
+        alt: "Imageflow Logo",
+        src: "img/imageflow.svg",
+        srcDark: "img/imageflow-white.svg",
       },
       items: [
         {
