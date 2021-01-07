@@ -204,19 +204,87 @@ function Home() {
       <div className={`container ${styles.header}`}>
         <h2>Treat your images right, get a faster site!</h2>
       </div>
-      <main>
-        {features && features.length > 0 && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-      </main>
+      <div class="container">
+        <div class="row">
+          <div class="col col--3">
+            <img className={styles.featureImage} src={"/img/crop.svg"} />
+          </div>
+          <div class="col col--9">
+            <p>
+              <p>
+                Serving optimized and correctly sized images is the fastest way
+                to a quicker, more profitable site or app.
+              </p>
+              <p>
+                <b>60% of website bytes are from images</b>
+              </p>
+              <p>
+                Imageflow optimizes your images with state-of-the art
+                compression techniques while preserving image quality. Most
+                image resizing tools destroy image highlights, but Imageflow
+                resizes in 128-bit linear light and ensures you get the correct
+                result every time. See the difference.
+              </p>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className={`container ${styles.header}`}>
+        <h2>Single-source imaging simplifies development</h2>
+      </div>
+      <div className="container">
+        <p>
+          Upload one authoritative version of an image and let Imageflow produce
+          sizes and variants on demand. Source images can reside in blob
+          storage, on another server, or on the filesystem. Compatible with
+          srcset and {"<picture>"}. Give your users the right image for their
+          display every time.
+        </p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col col--8">
+            <CodeBlock className="html">
+              {`<picture>
+ <!-- Image source for big screen with webp support -->
+      <source media="(min-width:1200px)" srcset="/img.jpg?width=1000">
+ <!-- Image source for big screen with png support -->
+      <source media="(min-width:1200px)" srcset="/img.jpg?width=1000">
+ <!-- Image source for meduim screen with png support -->
+      <source media="(min-width:800px)" srcset="/img.jpg?width=700">
+ <!-- Image source for small screen with png support -->
+      <source media="(min-width:500px)" srcset="/img.jpg?width=400">
+ <!-- Fallback incase above sources are not used -->
+         <img src="/images/image.jpg?width=400">
+</picture>`}
+            </CodeBlock>
+          </div>
+          <div class="col col--4">
+            <img src={"img/edit-url.gif"} className={styles.img} />
+          </div>
+        </div>
+      </div>
+      <div className={`container ${styles.header}`}>
+        <h2>Over 53 image manipulation commands</h2>
+        <p>
+          Imageflow can automatically crop away whitespace, apply sharpening,
+          fix white balance, add watermarks, adjust
+          contrast/saturation/brightness, make images transparent or opaque,
+          rotate, flip, crop, resize, constrain, smart encode, and more. Visit
+          the docs for more info or check out the JSON and Querystring Demos
+        </p>
+      </div>
+      <div className={`container ${styles.header}`}>
+        <h2>Flexible JSON API available when you need more</h2>
+        <ul>
+          <li>
+            Generate multiple image variants in a single job, improving
+            executing speed on bulk operations
+          </li>
+          <li> Combine multiple images in flexible ways.</li>
+          <li>Run jobs in-process via language bindings.</li>
+        </ul>
+      </div>
     </Layout>
   );
 }
