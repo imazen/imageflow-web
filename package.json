@@ -16,7 +16,9 @@
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-sequencer": "^3.0.1",
+    "typewriter-effect": "^2.17.0"
   },
   "browserslist": {
     "production": [

@@ -5,6 +5,7 @@ import CodeBlock from "@theme/CodeBlock";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
+import AnimatedImage from "../components/AnimatedImage";
 
 const samples = [
   {
@@ -260,7 +261,7 @@ function Home() {
             </CodeBlock>
           </div>
           <div class="col col--4">
-            <img src={"img/edit-url.gif"} className={styles.img} />
+            <AnimatedImage />
           </div>
         </div>
       </div>

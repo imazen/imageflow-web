@@ -1,0 +1,190 @@
+.animationContainer {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.animationOne {
+  width: 400px;
+  height: 300px;
+  background-image: url("https://assets.imgix.net/hp/snowshoe.jpg?auto=compress&w=900&h=600&fit=crop");
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: greyscale 6s cubic-bezier(0, 0, 1, 1);
+}
+
+@keyframes greyscale {
+  0% {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+  50%,70% {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  100% {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+}
+
+.animationTwo {
+  width: 400px;
+  height: 300px;
+  background-image: url("https://assets.imgix.net/hp/snowshoe.jpg?auto=compress&w=900&h=600&fit=crop");
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: zoomIn 6s cubic-bezier(0, 0, 1, 1);
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50%,
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animationThree {
+  width: 400px;
+  height: 300px;
+  background-image: url("https://assets.imgix.net/hp/snowshoe.jpg?auto=compress&w=900&h=600&fit=crop");
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: zoomOut 6s cubic-bezier(0, 0, 1, 1);
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  50%,
+  70% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animationFour {
+  width: 400px;
+  height: 300px;
+  background-image: url("https://assets.imgix.net/hp/snowshoe.jpg?auto=compress&w=900&h=600&fit=crop");
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: rotate 6s cubic-bezier(0, 0, 1, 1);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%,
+  60% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animationFive {
+  width: 400px;
+  height: 300px;
+  background-image: url("https://assets.imgix.net/hp/snowshoe.jpg?auto=compress&w=900&h=600&fit=crop");
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: borderAnim 6s cubic-bezier(0, 0, 1, 1);
+}
+
+@keyframes borderAnim {
+  0% {
+    border: 0px solid var(--ifm-background-surface-color);
+  }
+  50%,
+  70% {
+    border: 10px solid var(--ifm-background-surface-color);
+  }
+  100% {
+    border: 0px solid var(--ifm-background-surface-color);
+  }
+}
+
+.animationSix {
+  width: 400px;
+  height: 300px;
+  background-image: url("https://assets.imgix.net/hp/snowshoe.jpg?auto=compress&w=900&h=600&fit=crop");
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: crop 6s cubic-bezier(0, 0, 1, 1);
+}
+
+@keyframes crop {
+  0% {
+    background-position: center;
+  }
+  50%,
+  70% {
+    background-position: bottom;
+  }
+  100% {
+    background-position: center;
+  }
+}
+
+/* If Full rotation needed */
+/* @keyframes rotateEarth {
+  0% {
+    transform: rotate(0deg);
+  }
+  8.33% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  33.33% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  58.33% {
+    transform: rotate(270deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  83.33% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+/* Typing Effect */
+
+.textContainer {
+  padding: 6px;
+  z-index: 10000;
+  background: var(--ifm-card-background-color);
+  width: 400px;
+  border-radius: 3px;
+  position: relative;
+  color: var(--ifm-heading-color);
+}
+
+.typewriterText {
+  font-family: "Anonymous Pro", monospace;
+  overflow: hidden;
+  width: 18em;
+  font-size: 20px;
+  white-space: nowrap;
+}
