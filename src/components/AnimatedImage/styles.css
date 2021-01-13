@@ -17,11 +17,13 @@
 }
 
 @keyframes greyscale {
-  0% {
+  0%,
+  30% {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  50%,70% {
+  50%,
+  70% {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
   }
@@ -40,7 +42,8 @@
   animation: zoomIn 6s cubic-bezier(0, 0, 1, 1);
 }
 @keyframes zoomIn {
-  0% {
+  0%,
+  30% {
     transform: scale(1);
   }
   50%,
@@ -60,7 +63,8 @@
   animation: zoomOut 6s cubic-bezier(0, 0, 1, 1);
 }
 @keyframes zoomOut {
-  0% {
+  0%,
+  30% {
     transform: scale(1);
   }
   50%,
@@ -82,7 +86,8 @@
 }
 
 @keyframes rotate {
-  0% {
+  0%,
+  30% {
     transform: rotate(0deg);
   }
   50%,
@@ -104,7 +109,8 @@
 }
 
 @keyframes borderAnim {
-  0% {
+  0%,
+  30% {
     border: 0px solid var(--ifm-background-surface-color);
   }
   50%,
@@ -126,7 +132,8 @@
 }
 
 @keyframes crop {
-  0% {
+  0%,
+  30% {
     background-position: center;
   }
   50%,
@@ -140,7 +147,7 @@
 
 /* If Full rotation needed */
 /* @keyframes rotateEarth {
-  0% {
+  0%,30% {
     transform: rotate(0deg);
   }
   8.33% {
@@ -187,4 +194,10 @@
   width: 18em;
   font-size: 20px;
   white-space: nowrap;
+  direction: rtl;
+  text-overflow: clip;
+}
+
+.typewriterText > div {
+  display: inline-block;
 }

@@ -2,17 +2,22 @@ import { useSequencer } from "react-sequencer";
 import Typewriter from "typewriter-effect";
 
 import styles from "./styles.css";
+import { useWindupString } from "windups";
+// Make a new component
+const StringyWindup = ({ query }) => {
+  const [text] = useWindupString(query, { pace: () => 40 });
+  return <div>imageflow.io/img.png?{text}</div>;
+};
 
 import React from "react";
 export default function Home() {
-  console.log(styles);
   const steps = [
-    ["animationOne", 7000],
-    ["animationTwo", 7000],
-    ["animationThree", 7000],
-    ["animationFour", 7000],
-    ["animationFive", 7000],
-    ["animationSix", 7000],
+    [["animationOne", "s.grayscale=true"], 7000],
+    [["animationTwo", "w=420"], 7000],
+    [["animationThree", "w=320"], 7000],
+    [["animationFour", "rotate=90"], 7000],
+    [["animationFive", "pad=20"], 7000],
+    [["animationSix", "crop=200,200,400,400"], 7000],
   ];
   const [state, animation] = useSequencer({
     steps,
@@ -20,78 +25,13 @@ export default function Home() {
   });
   animation.play();
 
-  const textOne = (
-    <Typewriter
-      options={{
-        strings: ["This Effect is Greyscale."],
-        autoStart: true,
-        pauseFor: 20000,
-      }}
-    />
-  );
-  const textTwo = (
-    <Typewriter
-      options={{
-        strings: ["This Effect is Zoom In."],
-        autoStart: true,
-        pauseFor: 20000,
-      }}
-    />
-  );
-  const textThree = (
-    <Typewriter
-      options={{
-        strings: ["This Effect is Zoom Out."],
-        autoStart: true,
-        pauseFor: 20000,
-      }}
-    />
-  );
-  const textFour = (
-    <Typewriter
-      options={{
-        strings: ["This Effect is Rotation."],
-        autoStart: true,
-        pauseFor: 20000,
-      }}
-    />
-  );
-  const textFive = (
-    <Typewriter
-      options={{
-        strings: ["This Effect is Border."],
-        autoStart: true,
-        pauseFor: 20000,
-      }}
-    />
-  );
-  const textSix = (
-    <Typewriter
-      options={{
-        strings: ["This Effect is Image Positioning."],
-        autoStart: true,
-        pauseFor: 20000,
-      }}
-    />
-  );
-
   return (
     <div>
       <div className={styles.animationContainer}>
-        <div className={state.current}></div>
+        <div className={state.current[0]}></div>
         <div className="textContainer">
           <div className="typewriterText">
-            {state.current == "animationOne"
-              ? textOne
-              : state.current == "animationTwo"
-              ? textTwo
-              : state.current == "animationThree"
-              ? textThree
-              : state.current == "animationFour"
-              ? textFour
-              : state.current == "animationFive"
-              ? textFive
-              : textSix}
+            <StringyWindup query={state.current[1]} />
           </div>
         </div>
       </div>
