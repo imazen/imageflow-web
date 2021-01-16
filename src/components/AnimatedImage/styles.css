@@ -196,6 +196,7 @@
   white-space: nowrap;
   direction: rtl;
   text-overflow: clip;
+  text-align: center;
 }
 
 .typewriterText > div {

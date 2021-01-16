@@ -6,7 +6,7 @@ import { useWindupString } from "windups";
 // Make a new component
 const StringyWindup = ({ query }) => {
   const [text] = useWindupString(query, { pace: () => 40 });
-  return <div>imageflow.io/img.png?{text}</div>;
+  return <div style={{ textAlign: "center" }}>img.png?{text}</div>;
 };
 
 import React from "react";
@@ -16,7 +16,6 @@ export default function Home() {
     [["animationTwo", "w=420"], 7000],
     [["animationThree", "w=320"], 7000],
     [["animationFour", "rotate=90"], 7000],
-    [["animationFive", "pad=20"], 7000],
     [["animationSix", "crop=200,200,400,400"], 7000],
   ];
   const [state, animation] = useSequencer({
