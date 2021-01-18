@@ -202,6 +202,25 @@ function Home() {
           {samples[currentTab].code}
         </CodeBlock>
       </div>
+      <div className="container" style={{ marginTop: "40px" }}>
+        <div class="row">
+          <div class="col col--7" style={{ textAlign: "center" }}>
+            <p>
+              Modify images from the URL and get optimized images in
+              milliseconds. Makes responsive images easy! No vendor/cloud lock
+              in.
+            </p>
+            <p>
+              No per-image fees. Compatible with almost every cloud and CDN,
+              with disk caching available.
+            </p>
+            <div>Rust Server | .NET 5 Server (extra features)</div>
+          </div>
+          <div class="col col--5">
+            <AnimatedImage />
+          </div>
+        </div>
+      </div>
       <div className={`container ${styles.header}`}>
         <h2>Treat your images right, get a faster site!</h2>
       </div>
@@ -261,7 +280,7 @@ function Home() {
             </CodeBlock>
           </div>
           <div class="col col--4">
-            <AnimatedImage />
+            <img src="/img/edit-url.gif" style={{ height: "100%" }} />
           </div>
         </div>
       </div>

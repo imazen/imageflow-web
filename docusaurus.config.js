@@ -17,8 +17,23 @@ module.exports = {
       },
       items: [
         {
-          label: "Libraries",
-          position: "right",
+          href: "https://github.com/imazen/",
+          label: "GitHub",
+          position: "left",
+        },
+        {
+          to: "/about/main",
+          label: "Docs",
+          position: "left",
+        },
+        {
+          to: "/demo/",
+          label: "Demo",
+          position: "left",
+        },
+        {
+          label: "More",
+          position: "left",
           items: [
             {
               label: "ImageFlow Nodejs",
@@ -46,13 +61,6 @@ module.exports = {
             },
             // ... more items
           ],
-        },
-        { to: "blog", label: "Blog", position: "left" },
-        { to: "demo", label: "Demo", position: "left" },
-        {
-          href: "https://github.com/imazen/",
-          label: "GitHub",
-          position: "right",
         },
       ],
     },
