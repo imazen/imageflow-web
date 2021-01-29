@@ -142,4 +142,6 @@
 
 html[data-theme="dark"] {
   --ifm-background-color: #51414e !important ;
+  --ifm-link-color: #c7c663;
+  --ifm-navbar-link-hover-color: #c7c663;
 }
