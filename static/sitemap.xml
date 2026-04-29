@@ -1,36 +1,147 @@
----
-# From: http://davidensinger.com/2013/11/building-a-better-sitemap-xml-with-jekyll/
-layout: null
-sitemap:
-  exclude: 'yes'
----
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-      <loc>{{ site.url }}/</loc>
-      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      <loc>https://www.imageflow.io/</loc>
+      <lastmod>2020-09-04T15:31:16+00:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
-    </url>{%     for post in site.posts %}{%       unless post.published == false %}
+    </url>
     <url>
-      <loc>{{ site.url }}{{ post.url }}</loc>{%         if post.lastmod %}
-        <lastmod>{{ post.lastmod | date: "%Y-%m-%d" }}</lastmod>{%         elsif post.date %}
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>{%         else %}
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>{%         endif %}{%         if post.changefreq %}
-        <changefreq>{{ post.changefreq }}</changefreq>{%         else %}
-        <changefreq>monthly</changefreq>{%         endif %}{%         if post.priority %}
-        <priority>{{ post.priority }}</priority>{%         else if post.tags contains featured %}
-        <priority>0.9</priority>{%         else %}
-        <priority>0.7</priority>{%         endif %}
-    </url>{%       endunless %}{%     endfor %}{%     for page in site.html_pages %}{%       unless page.sitemap_exclude == "yes" %}
+      <loc>https://www.imageflow.io/topics/template.html</loc>
+        <lastmod>3016-02-26T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
     <url>
-      <loc>{{ site.url }}{{ page.url | remove: "index.html" }}</loc>{%         if page.lastmod %}
-        <lastmod>{{ page.lastmod | date: "%Y-%m-%d" }}</lastmod>{%         elsif page.date %}
-        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>{%         else %}
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>{%         endif %}{%         if page.changefreq %}
-        <changefreq>{{ page.changefreq }}</changefreq>{%         else %}
-        <changefreq>monthly</changefreq>{%         endif %}{%         if page.priority %}
-        <priority>{{ page.priority }}</priority>{%         else %}
-        <priority>0.5</priority>{%         endif %}
-    </url>{%       endunless %}{%     endfor %}
+      <loc>https://www.imageflow.io/topics/icons.html</loc>
+        <lastmod>3015-08-16T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/topics/generic.html</loc>
+        <lastmod>3015-08-16T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/topics/elements.html</loc>
+        <lastmod>3015-08-16T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/topics/my%20topic%20group/subcattest-topic3.html</loc>
+        <lastmod>3006-09-22T00:02:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/topics/my%20topic%20group/subcattest-topic2.html</loc>
+        <lastmod>3006-09-22T00:01:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/topics/my topic group/</loc>
+        <lastmod>3006-09-22T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/works/works-example2.html</loc>
+        <lastmod>3001-01-01T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/works/works-example3.html</loc>
+        <lastmod>3000-09-01T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/works/works-example1.html</loc>
+        <lastmod>3000-01-01T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/benchmarks/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/contact-success/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/contact-success/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/contact/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/credits/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/kickstarter/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/licensing/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/our_pledges/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/related_projects/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/imageresizer/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/topics/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://www.imageflow.io/works/</loc>
+        <lastmod>2020-09-04T15:31:16+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
 </urlset>

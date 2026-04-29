@@ -1,30 +1,1458 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | replace: '<br />', ', ' | strip_html | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>Imageflow - Optimal images at incredible speeds</title>
+    <description>treat your images right</description>
+    <link>https://www.imageflow.io/</link>
+    <atom:link href="https://www.imageflow.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 04 Sep 2020 15:31:16 +0000</pubDate>
+    <lastBuildDate>Fri, 04 Sep 2020 15:31:16 +0000</lastBuildDate>
+    <generator>Jekyll v3.9.0</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Guide for new posts</title>
+        <description>&lt;h2 id=&quot;required&quot;&gt;Required&lt;/h2&gt;
+
+&lt;h3 id=&quot;categories&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;categories&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;If it’s a post, the categories array is required with at least
+the first element set to the permalink name of its parent page
+(so that breadcrumbs work).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;categories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;topics ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The two top-level categories with provided index pages are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;topics&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;works&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want back/next navigation within a subcategory:&lt;/p&gt;
+
+&lt;ul class=&quot;nobullet&quot;&gt;
+  &lt;li&gt;Create a first post for the sub-category, but with a permalink.
+The category list can be space-delimited on one line or in a bulleted list.
+Note that the category names must exactly match the permalink.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;  &lt;span class=&quot;na&quot;&gt;categories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;topics my-great-vacation&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/topics/my-great-vacation/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul class=&quot;nobullet&quot;&gt;
+  &lt;li&gt;The site permalink would be:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/topics/my-great-vacation/index.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul class=&quot;nobullet&quot;&gt;
+  &lt;li&gt;If your subcategory contains spaces, specify categories as an array&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;  &lt;span class=&quot;na&quot;&gt;categories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;topics&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my great vacation&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/topics/my great vacation/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul class=&quot;nobullet&quot;&gt;
+  &lt;li&gt;For subsequent topics in the sub-category, add the sub-category and no
+permalink:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;  &lt;span class=&quot;na&quot;&gt;categories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;topics my-great-vacation&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul class=&quot;nobullet&quot;&gt;
+  &lt;li&gt;resulting in: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/topics/my-great-vacation/topic-title.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul class=&quot;nobullet&quot;&gt;
+  &lt;li&gt;Topics in the sub-category are sorted by date (and time). Therefore, if they
+all fall on the same day, specify the date in the post with a timestamp by
+which to sort.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;  &lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;3009-09-22 00:00:03&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;excerpt&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;excerpt&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;You’ll probably wanna provide an excerpt in front-matter, because relying on jekyll to
+get the excerpt from the body has too many caveats. The excerpt is truncated
+as necessary in references, so it can be as long as you want, except that it’s also
+displayed, centered, right under the topic title (in all caps).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;excerpt&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yada yada&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;permalink&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;permalink&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;If it’s the first page of a sub-category, use a permalink for the categories.
+It becomes the index that a breadcrumb link would pop up to, ie:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/topics/new-category/index.html&lt;/code&gt;. Also see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;categories&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/topics/new-category/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;title&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;title&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Title for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;title/&amp;gt;&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;h1/&amp;gt;&lt;/code&gt;. For this and all other fields refer to Yaml
+restrictions on when you need to quote the value.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;My interesting topic&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;presentation-options&quot;&gt;Presentation options&lt;/h2&gt;
+
+&lt;h3 id=&quot;author&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;author&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;If you want the article to be attributed to an author, specify a name that
+corresponds to a key in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_data\authors.yml&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;key_name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;background-image&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;background-image&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;If you want a larger title block with a background image, specify it here.
+If it’s in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/images/&lt;/code&gt; folder, specify just the name;
+otherwise specify the folder relative to your jekyll root, starting with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;.
+If it’s a remote image, begin the name with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;//&lt;/code&gt;.
+Use a high resolution image, if possible,
+for when viewed full screen. Once displayed, you’ll wanna slowly resize your
+browser or use its developer tools to see how the image responds for all &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@media&lt;/code&gt;
+breakpoints and crop it as necessary.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;imagefile.png&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;icon&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;icon&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;For the featured articles on the main page, if you want an icon other than
+the heart icon, specify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;font-awesome&lt;/code&gt; icon identifier (just the text after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fa-&lt;/code&gt;).
+See the &lt;a href=&quot;/topics/icons.html&quot;&gt;font-awesome icons&lt;/a&gt;
+topic for a list of available icons.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;industry&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;layout&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;layout&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;For both posts and pages, there’s no need to specify the layout.
+Specifying the layout is optional because defaults
+are set in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file to set the layout based on the folder it’s in
+(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_pages&lt;/code&gt;). The layout &lt;em&gt;is&lt;/em&gt; useful for pages outside of these folders,
+however.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;page|post&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;options&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;options&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;The options allow you to customize the page somewhat.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;minihead&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# as minimal a title as possible, and no date printed&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;fullwidth&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# leaving only a tiny margin on all media sizes&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nocomment&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# disable disqus comments for this post&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nomenu&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# for pages, don't add to the menu&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nolanding&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# for pages and featured posts, don't add to the landing page&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Note that disqus comments are not displayed on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;works&lt;/code&gt; posts.&lt;/p&gt;
+
+&lt;h2 id=&quot;ordering-and-site-map-options&quot;&gt;Ordering and site map options&lt;/h2&gt;
+
+&lt;h3 id=&quot;changefreq&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;changefreq&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;The default change frequency for all pages in the site map is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;monthly&lt;/code&gt;.
+Depending on how often you think you’ll edit a page, you can set the page
+change frequency. &amp;lt;a target=”_blank”
+href=”https://www.v9seo.com/blog/2011/12/27/sitemap-xml-why-changefreq-priority-are-important/”&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Here’s a good guide&amp;lt;/a&amp;gt; on when to use the available values.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;changefreq&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;weekly&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;key&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;All files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_pages&lt;/code&gt; folder are displayed in the nav menu unless you
+set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nomenu&lt;/code&gt; option.
+Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key&lt;/code&gt; to specify the order you want the pages listed in the nav menu.
+Values are sorted in ascending order.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;lastmod-date&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lastmod&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;If you want the site map &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lastmod&lt;/code&gt; setting to be updated, you can set one or both of
+these to your new modified date as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD HH:MM:SS +/-TTTT&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lastmod&lt;/code&gt; has priority).
+If you use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date&lt;/code&gt;, the date shown on the page is also modified, overriding the
+date in the filename. The timestamp is assumed to be UTC unless you specify the
+time zone offset afterward.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;lastmod&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2016-03-13 23:11:00&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2016-01-01 00:00:00 -0800&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;priority&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;priority&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;priority&lt;/code&gt; to specify two things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the grouping in the works index&lt;/li&gt;
+  &lt;li&gt;the site map priority&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;0.8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In the works index, the works are grouped by priority, listed by descending priority
+and by descending date within each priority.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; For now, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;works&lt;/code&gt; posts &lt;em&gt;must&lt;/em&gt; have a priority set for the ordering
+          to work. If you get a “&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;can't compare float with nil&lt;/code&gt;” error in your
+          jekyll build, there’s a missing priority somewhere.&lt;/p&gt;
+
+&lt;p&gt;Because the value is used to set the site map priority,
+it must be set to a value between 0 and 1.0.
+I have three groups of works, using priorities 0.7, 0.6, and 0.5.
+None as high as featured posts, but then, I’m not looking for a job right now. ;-)&lt;/p&gt;
+
+&lt;p&gt;Default priorities in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sitemap.xml&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.0&lt;/code&gt; - Landing page&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.9&lt;/code&gt; - Featured posts&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.7&lt;/code&gt; - Other posts&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.5&lt;/code&gt; - Pages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sitemap_exclude&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sitemap_exclude&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Set to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yes&lt;/code&gt; if you want to exclude a page from the sitemap.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;sitemap_exclude&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yes&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;tags&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tags&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;For &lt;em&gt;topics&lt;/em&gt; posts, the only tag that has an effect right now is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;featured&lt;/code&gt;,
+which adds it to the top of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/topics/&lt;/code&gt; page. The most recent eight
+featured posts are also added to the main landing page.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;featured&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;For &lt;em&gt;works&lt;/em&gt; posts, the tags become a listing of skills demonstrated. For example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;C&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Windows DLL&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;SGML&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/skills.png&quot; alt=&quot;web page display of the preceding tags&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;featured&lt;/code&gt; tag to a work if you want it to appear on the main landing page.
+The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;featured&lt;/code&gt; tag is excluded from the list of skills on the page and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;works&lt;/code&gt; index.
+However, its page priority overrides the standard priority of featured posts in the site map.&lt;/p&gt;
+
+&lt;h2 id=&quot;css-and-script-support&quot;&gt;CSS and Script support&lt;/h2&gt;
+
+&lt;h3 id=&quot;includes&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;includes&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;If your page needs to include stylesheets or scripts, provide ‘em as either
+local or remote URLs. Prefix remote urls with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;//&lt;/code&gt;, not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt;. Stylesheets
+are included in the header and scripts at the bottom before the body closes.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;style-includes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/local/path/to/stylesheet.css&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;//remote.com/url/to/stylesheet.css&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;script-includes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/local/path/to/script.js&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;//remote.com/url/to/script.js&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;style-script&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;style, script&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;These are useful when you want to embed styles and scripts outside of the
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ content }}&lt;/code&gt; area.
+Use the yaml &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; indented block to ensure line breaks are preserved.
+The styles are included in the header below stylesheet includes;
+scripts are included at the bottom below script includes.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;/* some css block here */&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;.some-class {&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;somestyle: definition;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;// some script block here...&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;$(document).ready(function(){&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Mon, 26 Feb 3016 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/topics/template.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/topics/template.html</guid>
+        
+        
+        <category>topics</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>font-awesome icons</title>
+        <description>&lt;style&gt;
+.breadcrumb, .wrapper.style5 {
+	background-color: #afafaf;
+}
+.icons.major &gt; li {
+	line-height: 7em;
+	display: inline-block;
+}
+.label {
+	color: white;
+	font-weight: bold;
+	margin-left: 1.2em;
+}
+&lt;/style&gt;
+&lt;ul class=&quot;icons major&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-glass major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-glass&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-music major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-music&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-search major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-search&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-envelope-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-envelope-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-heart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-heart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-star major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-star&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-star-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-star-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-user major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-user&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-film major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-film&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-th-large major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-th-large&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-th major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-th&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-th-list major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-th-list&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-check major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-check&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-remove major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-remove&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-close major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-close&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-times major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-times&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-search-plus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-search-plus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-search-minus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-search-minus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-power-off major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-power-off&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-signal major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-signal&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gear major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gear&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cog major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cog&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-trash-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-trash-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-home major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-home&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-clock-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-clock-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-road major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-road&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-download major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-download&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-o-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-o-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-o-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-o-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-inbox major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-inbox&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-play-circle-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-play-circle-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rotate-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rotate-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-repeat major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-repeat&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-refresh major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-refresh&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-list-alt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-list-alt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-lock major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-lock&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-flag major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-flag&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-headphones major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-headphones&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-volume-off major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-volume-off&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-volume-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-volume-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-volume-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-volume-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-qrcode major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-qrcode&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-barcode major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-barcode&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tag major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tag&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tags major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tags&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-book major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-book&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bookmark major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bookmark&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-print major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-print&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-camera major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-camera&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-font major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-font&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bold major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bold&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-italic major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-italic&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-text-height major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-text-height&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-text-width major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-text-width&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-align-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-align-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-align-center major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-align-center&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-align-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-align-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-align-justify major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-align-justify&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-list major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-list&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-dedent major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-dedent&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-outdent major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-outdent&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-indent major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-indent&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-video-camera major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-video-camera&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-photo major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-photo&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-image major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-image&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-picture-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-picture-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pencil major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pencil&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-map-marker major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-map-marker&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-adjust major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-adjust&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tint major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tint&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-edit major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-edit&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pencil-square-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pencil-square-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-share-square-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-share-square-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-check-square-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-check-square-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrows major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrows&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-step-backward major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-step-backward&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-fast-backward major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-fast-backward&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-backward major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-backward&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-play major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-play&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pause major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pause&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-stop major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-stop&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-forward major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-forward&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-fast-forward major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-fast-forward&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-step-forward major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-step-forward&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-eject major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-eject&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-plus-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-plus-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-minus-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-minus-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-times-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-times-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-check-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-check-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-question-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-question-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-info-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-info-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-crosshairs major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-crosshairs&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-times-circle-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-times-circle-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-check-circle-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-check-circle-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ban major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ban&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mail-forward major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mail-forward&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-share major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-share&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-expand major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-expand&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-compress major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-compress&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-plus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-plus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-minus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-minus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-asterisk major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-asterisk&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-exclamation-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-exclamation-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gift major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gift&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-leaf major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-leaf&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-fire major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-fire&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-eye major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-eye&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-eye-slash major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-eye-slash&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-warning major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-warning&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-exclamation-triangle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-exclamation-triangle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-plane major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-plane&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-calendar major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-calendar&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-random major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-random&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-comment major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-comment&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-magnet major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-magnet&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-retweet major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-retweet&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-shopping-cart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-shopping-cart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-folder major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-folder&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-folder-open major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-folder-open&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrows-v major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrows-v&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrows-h major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrows-h&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bar-chart-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bar-chart-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bar-chart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bar-chart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-twitter-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-twitter-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-facebook-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-facebook-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-camera-retro major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-camera-retro&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-key major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-key&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gears major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gears&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cogs major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cogs&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-comments major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-comments&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-thumbs-o-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-thumbs-o-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-thumbs-o-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-thumbs-o-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-star-half major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-star-half&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-heart-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-heart-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sign-out major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sign-out&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-linkedin-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-linkedin-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-thumb-tack major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-thumb-tack&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-external-link major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-external-link&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sign-in major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sign-in&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-trophy major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-trophy&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-github-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-github-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-upload major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-upload&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-lemon-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-lemon-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-phone major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-phone&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-square-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-square-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bookmark-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bookmark-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-phone-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-phone-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-twitter major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-twitter&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-facebook-f major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-facebook-f&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-facebook major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-facebook&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-github major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-github&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-unlock major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-unlock&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-credit-card major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-credit-card&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-feed major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-feed&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rss major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rss&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hdd-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hdd-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bullhorn major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bullhorn&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bell major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bell&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-certificate major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-certificate&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-o-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-o-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-o-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-o-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-o-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-o-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-o-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-o-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-globe major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-globe&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-wrench major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-wrench&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tasks major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tasks&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-filter major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-filter&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-briefcase major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-briefcase&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrows-alt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrows-alt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-group major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-group&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-users major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-users&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chain major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chain&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-link major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-link&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cloud major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cloud&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-flask major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-flask&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cut major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cut&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-scissors major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-scissors&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-copy major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-copy&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-files-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-files-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paperclip major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paperclip&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-save major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-save&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-floppy-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-floppy-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-navicon major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-navicon&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-reorder major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-reorder&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bars major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bars&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-list-ul major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-list-ul&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-list-ol major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-list-ol&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-strikethrough major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-strikethrough&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-underline major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-underline&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-table major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-table&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-magic major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-magic&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-truck major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-truck&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pinterest major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pinterest&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pinterest-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pinterest-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-google-plus-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-google-plus-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-google-plus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-google-plus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-money major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-money&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-columns major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-columns&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-unsorted major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-unsorted&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-desc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-desc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-asc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-asc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-envelope major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-envelope&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-linkedin major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-linkedin&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rotate-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rotate-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-undo major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-undo&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-legal major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-legal&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gavel major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gavel&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-dashboard major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-dashboard&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tachometer major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tachometer&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-comment-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-comment-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-comments-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-comments-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-flash major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-flash&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bolt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bolt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sitemap major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sitemap&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-umbrella major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-umbrella&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paste major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paste&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-clipboard major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-clipboard&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-lightbulb-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-lightbulb-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-exchange major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-exchange&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cloud-download major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cloud-download&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cloud-upload major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cloud-upload&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-user-md major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-user-md&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-stethoscope major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-stethoscope&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-suitcase major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-suitcase&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bell-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bell-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-coffee major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-coffee&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cutlery major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cutlery&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-text-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-text-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-building-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-building-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hospital-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hospital-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ambulance major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ambulance&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-medkit major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-medkit&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-fighter-jet major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-fighter-jet&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-beer major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-beer&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-h-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-h-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-plus-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-plus-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-double-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-double-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-double-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-double-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-double-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-double-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-double-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-double-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angle-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angle-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-desktop major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-desktop&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-laptop major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-laptop&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tablet major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tablet&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mobile-phone major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mobile-phone&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mobile major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mobile&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-circle-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-circle-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-quote-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-quote-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-quote-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-quote-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-spinner major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-spinner&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mail-reply major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mail-reply&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-reply major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-reply&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-github-alt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-github-alt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-folder-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-folder-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-folder-open-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-folder-open-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-smile-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-smile-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-frown-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-frown-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-meh-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-meh-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gamepad major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gamepad&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-keyboard-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-keyboard-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-flag-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-flag-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-flag-checkered major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-flag-checkered&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-terminal major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-terminal&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-code major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-code&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mail-reply-all major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mail-reply-all&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-reply-all major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-reply-all&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-star-half-empty major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-star-half-empty&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-star-half-full major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-star-half-full&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-star-half-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-star-half-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-location-arrow major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-location-arrow&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-crop major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-crop&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-code-fork major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-code-fork&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-unlink major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-unlink&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chain-broken major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chain-broken&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-question major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-question&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-info major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-info&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-exclamation major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-exclamation&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-superscript major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-superscript&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-subscript major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-subscript&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-eraser major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-eraser&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-puzzle-piece major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-puzzle-piece&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-microphone major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-microphone&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-microphone-slash major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-microphone-slash&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-shield major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-shield&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-calendar-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-calendar-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-fire-extinguisher major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-fire-extinguisher&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rocket major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rocket&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-maxcdn major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-maxcdn&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-circle-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-circle-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-circle-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-circle-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-circle-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-circle-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chevron-circle-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chevron-circle-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-html5 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-html5&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-css3 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-css3&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-anchor major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-anchor&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-unlock-alt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-unlock-alt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bullseye major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bullseye&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ellipsis-h major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ellipsis-h&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ellipsis-v major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ellipsis-v&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rss-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rss-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-play-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-play-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ticket major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ticket&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-minus-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-minus-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-minus-square-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-minus-square-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-level-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-level-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-level-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-level-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-check-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-check-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pencil-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pencil-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-external-link-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-external-link-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-share-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-share-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-compass major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-compass&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-toggle-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-toggle-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-square-o-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-square-o-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-toggle-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-toggle-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-square-o-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-square-o-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-toggle-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-toggle-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-square-o-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-square-o-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-euro major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-euro&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-eur major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-eur&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gbp major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gbp&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-dollar major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-dollar&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-usd major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-usd&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rupee major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rupee&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-inr major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-inr&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cny major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cny&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rmb major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rmb&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-yen major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-yen&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-jpy major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-jpy&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ruble major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ruble&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rouble major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rouble&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rub major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rub&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-won major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-won&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-krw major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-krw&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bitcoin major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bitcoin&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-btc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-btc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-text major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-text&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-alpha-asc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-alpha-asc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-alpha-desc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-alpha-desc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-amount-asc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-amount-asc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-amount-desc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-amount-desc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-numeric-asc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-numeric-asc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sort-numeric-desc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sort-numeric-desc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-thumbs-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-thumbs-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-thumbs-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-thumbs-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-youtube-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-youtube-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-youtube major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-youtube&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-xing major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-xing&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-xing-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-xing-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-youtube-play major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-youtube-play&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-dropbox major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-dropbox&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-stack-overflow major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-stack-overflow&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-instagram major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-instagram&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-flickr major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-flickr&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-adn major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-adn&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bitbucket major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bitbucket&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bitbucket-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bitbucket-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tumblr major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tumblr&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tumblr-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tumblr-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-long-arrow-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-long-arrow-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-long-arrow-up major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-long-arrow-up&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-long-arrow-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-long-arrow-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-long-arrow-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-long-arrow-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-apple major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-apple&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-windows major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-windows&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-android major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-android&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-linux major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-linux&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-dribbble major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-dribbble&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-skype major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-skype&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-foursquare major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-foursquare&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-trello major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-trello&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-female major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-female&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-male major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-male&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gittip major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gittip&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gratipay major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gratipay&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sun-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sun-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-moon-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-moon-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-archive major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-archive&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bug major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bug&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-vk major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-vk&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-weibo major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-weibo&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-renren major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-renren&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pagelines major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pagelines&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-stack-exchange major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-stack-exchange&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-o-right major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-o-right&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-arrow-circle-o-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-arrow-circle-o-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-toggle-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-toggle-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-caret-square-o-left major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-caret-square-o-left&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-dot-circle-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-dot-circle-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-wheelchair major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-wheelchair&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-vimeo-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-vimeo-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-turkish-lira major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-turkish-lira&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-try major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-try&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-plus-square-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-plus-square-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-space-shuttle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-space-shuttle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-slack major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-slack&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-envelope-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-envelope-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-wordpress major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-wordpress&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-openid major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-openid&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-institution major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-institution&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bank major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bank&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-university major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-university&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mortar-board major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mortar-board&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-graduation-cap major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-graduation-cap&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-yahoo major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-yahoo&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-google major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-google&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-reddit major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-reddit&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-reddit-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-reddit-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-stumbleupon-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-stumbleupon-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-stumbleupon major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-stumbleupon&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-delicious major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-delicious&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-digg major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-digg&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pied-piper major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pied-piper&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pied-piper-alt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pied-piper-alt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-drupal major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-drupal&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-joomla major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-joomla&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-language major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-language&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-fax major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-fax&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-building major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-building&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-child major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-child&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paw major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paw&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-spoon major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-spoon&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cube major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cube&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cubes major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cubes&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-behance major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-behance&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-behance-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-behance-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-steam major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-steam&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-steam-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-steam-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-recycle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-recycle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-automobile major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-automobile&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-car major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-car&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cab major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cab&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-taxi major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-taxi&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tree major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tree&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-spotify major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-spotify&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-deviantart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-deviantart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-soundcloud major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-soundcloud&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-database major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-database&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-pdf-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-pdf-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-word-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-word-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-excel-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-excel-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-powerpoint-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-powerpoint-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-photo-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-photo-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-picture-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-picture-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-image-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-image-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-zip-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-zip-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-archive-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-archive-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-sound-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-sound-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-audio-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-audio-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-movie-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-movie-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-video-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-video-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-file-code-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-file-code-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-vine major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-vine&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-codepen major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-codepen&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-jsfiddle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-jsfiddle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-life-bouy major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-life-bouy&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-life-buoy major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-life-buoy&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-life-saver major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-life-saver&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-support major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-support&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-life-ring major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-life-ring&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-circle-o-notch major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-circle-o-notch&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ra major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ra&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-rebel major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-rebel&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ge major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ge&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-empire major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-empire&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-git-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-git-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-git major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-git&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-y-combinator-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-y-combinator-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-yc-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-yc-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hacker-news major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hacker-news&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tencent-weibo major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tencent-weibo&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-qq major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-qq&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-wechat major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-wechat&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-weixin major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-weixin&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-send major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-send&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paper-plane major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paper-plane&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-send-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-send-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paper-plane-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paper-plane-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-history major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-history&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-circle-thin major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-circle-thin&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-header major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-header&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paragraph major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paragraph&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sliders major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sliders&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-share-alt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-share-alt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-share-alt-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-share-alt-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bomb major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bomb&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-soccer-ball-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-soccer-ball-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-futbol-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-futbol-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tty major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tty&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-binoculars major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-binoculars&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-plug major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-plug&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-slideshare major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-slideshare&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-twitch major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-twitch&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-yelp major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-yelp&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-newspaper-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-newspaper-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-wifi major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-wifi&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-calculator major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-calculator&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paypal major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paypal&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-google-wallet major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-google-wallet&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-visa major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-visa&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-mastercard major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-mastercard&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-discover major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-discover&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-amex major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-amex&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-paypal major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-paypal&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-stripe major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-stripe&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bell-slash major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bell-slash&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bell-slash-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bell-slash-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-trash major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-trash&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-copyright major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-copyright&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-at major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-at&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-eyedropper major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-eyedropper&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-paint-brush major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-paint-brush&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-birthday-cake major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-birthday-cake&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-area-chart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-area-chart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pie-chart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pie-chart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-line-chart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-line-chart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-lastfm major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-lastfm&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-lastfm-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-lastfm-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-toggle-off major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-toggle-off&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-toggle-on major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-toggle-on&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bicycle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bicycle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ioxhost major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ioxhost&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-angellist major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-angellist&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-shekel major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-shekel&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sheqel major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sheqel&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ils major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ils&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-meanpath major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-meanpath&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-buysellads major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-buysellads&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-connectdevelop major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-connectdevelop&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-dashcube major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-dashcube&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-forumbee major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-forumbee&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-leanpub major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-leanpub&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sellsy major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sellsy&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-shirtsinbulk major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-shirtsinbulk&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-simplybuilt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-simplybuilt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-skyatlas major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-skyatlas&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cart-plus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cart-plus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cart-arrow-down major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cart-arrow-down&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-diamond major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-diamond&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-ship major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-ship&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-user-secret major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-user-secret&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-motorcycle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-motorcycle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-street-view major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-street-view&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-heartbeat major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-heartbeat&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-venus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-venus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mars major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mars&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mercury major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mercury&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-intersex major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-intersex&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-transgender major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-transgender&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-transgender-alt major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-transgender-alt&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-venus-double major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-venus-double&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mars-double major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mars-double&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-venus-mars major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-venus-mars&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mars-stroke major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mars-stroke&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mars-stroke-v major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mars-stroke-v&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mars-stroke-h major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mars-stroke-h&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-neuter major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-neuter&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-genderless major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-genderless&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-facebook-official major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-facebook-official&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-pinterest-p major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-pinterest-p&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-whatsapp major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-whatsapp&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-server major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-server&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-user-plus major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-user-plus&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-user-times major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-user-times&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hotel major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hotel&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-bed major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-bed&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-viacoin major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-viacoin&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-train major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-train&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-subway major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-subway&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-medium major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-medium&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-yc major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-yc&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-y-combinator major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-y-combinator&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-optin-monster major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-optin-monster&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-opencart major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-opencart&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-expeditedssl major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-expeditedssl&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-4 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-4&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-full major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-full&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-3 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-3&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-three-quarters major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-three-quarters&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-2 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-2&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-half major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-half&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-1 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-1&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-quarter major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-quarter&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-0 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-0&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-battery-empty major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-battery-empty&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-mouse-pointer major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-mouse-pointer&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-i-cursor major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-i-cursor&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-object-group major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-object-group&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-object-ungroup major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-object-ungroup&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sticky-note major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sticky-note&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-sticky-note-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-sticky-note-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-jcb major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-jcb&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-cc-diners-club major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-cc-diners-club&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-clone major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-clone&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-balance-scale major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-balance-scale&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass-1 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass-1&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass-start major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass-start&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass-2 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass-2&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass-half major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass-half&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass-3 major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass-3&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass-end major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass-end&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hourglass major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hourglass&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-grab-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-grab-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-rock-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-rock-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-stop-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-stop-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-paper-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-paper-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-scissors-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-scissors-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-lizard-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-lizard-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-spock-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-spock-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-pointer-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-pointer-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-hand-peace-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-hand-peace-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-trademark major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-trademark&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-registered major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-registered&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-creative-commons major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-creative-commons&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gg major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gg&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-gg-circle major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-gg-circle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tripadvisor major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tripadvisor&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-odnoklassniki major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-odnoklassniki&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-odnoklassniki-square major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-odnoklassniki-square&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-get-pocket major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-get-pocket&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-wikipedia-w major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-wikipedia-w&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-safari major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-safari&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-chrome major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-chrome&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-firefox major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-firefox&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-opera major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-opera&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-internet-explorer major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-internet-explorer&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-tv major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-tv&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-television major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-television&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-contao major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-contao&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-500px major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-500px&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-amazon major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-amazon&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-calendar-plus-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-calendar-plus-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-calendar-minus-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-calendar-minus-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-calendar-times-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-calendar-times-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-calendar-check-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-calendar-check-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-industry major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-industry&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-map-pin major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-map-pin&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-map-signs major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-map-signs&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-map-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-map-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-map major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-map&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-commenting major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-commenting&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-commenting-o major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-commenting-o&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-houzz major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-houzz&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-vimeo major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-vimeo&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-black-tie major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-black-tie&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;icon fa-fonticons major style1&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;label&quot;&gt;- fa-fonticons&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 16 Aug 3015 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/topics/icons.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/topics/icons.html</guid>
+        
+        
+        <category>topics</category>
+        
+      </item>
+    
+      <item>
+        <title>Generic</title>
+        <description>	&lt;h3&gt;Lorem ipsum dolor&lt;/h3&gt;
+	&lt;p&gt;Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.&lt;/p&gt;
+	&lt;p&gt;Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.&lt;/p&gt;
+	&lt;hr /&gt;
+	&lt;h4&gt;Feugiat aliquam&lt;/h4&gt;
+	&lt;p&gt;Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat.&lt;/p&gt;
+	&lt;p&gt;Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui, at vestibulum sit amet, auctor bibendum neque.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 16 Aug 3015 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/topics/generic.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/topics/generic.html</guid>
+        
+        <category>featured</category>
+        
+        
+        <category>topics</category>
+        
+      </item>
+    
+      <item>
+        <title>Elements</title>
+        <description>			&lt;section&gt;
+				&lt;p&gt;&lt;i&gt;Editor note: These are the styles available with the spectral theme by HTML5 UP
+				(n33). Note that some elements require classes, ala
+				&lt;code&gt;&amp;lt;ul class=&quot;icons&quot;&gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;div class=&quot;6u 12u$(medium)&quot;&gt;&lt;/code&gt;. View
+				the source for examples. And see &lt;a href=&quot;https://github.com/n33/skel&quot;
+				target=&quot;_blank&quot;&gt;his skel docs&lt;/a&gt; to grok the CSS.&lt;/i&gt;&lt;/p&gt;
+				&lt;h4&gt;Text&lt;/h4&gt;
+				&lt;p&gt;This is &lt;b&gt;bold&lt;/b&gt; and this is &lt;strong&gt;strong&lt;/strong&gt;. This is &lt;i&gt;italic&lt;/i&gt; and this is &lt;em&gt;emphasized&lt;/em&gt;.
+				This is &lt;sup&gt;superscript&lt;/sup&gt; text and this is &lt;sub&gt;subscript&lt;/sub&gt; text.
+				This is &lt;u&gt;underlined&lt;/u&gt; and this is code: &lt;code&gt;for (;;) { ... }&lt;/code&gt;. Finally, &lt;a href=&quot;#&quot;&gt;this is a link&lt;/a&gt;.&lt;/p&gt;
+				&lt;hr /&gt;
+				&lt;header&gt;
+					&lt;h4&gt;Heading with a Subtitle&lt;/h4&gt;
+					&lt;p&gt;Lorem ipsum dolor sit amet nullam id egestas urna aliquam&lt;/p&gt;
+				&lt;/header&gt;
+				&lt;p&gt;Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.&lt;/p&gt;
+				&lt;header&gt;
+					&lt;h5&gt;Heading with a Subtitle&lt;/h5&gt;
+					&lt;p&gt;Lorem ipsum dolor sit amet nullam id egestas urna aliquam&lt;/p&gt;
+				&lt;/header&gt;
+				&lt;p&gt;Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.&lt;/p&gt;
+				&lt;hr /&gt;
+				&lt;h2&gt;Heading Level 2&lt;/h2&gt;
+				&lt;h3&gt;Heading Level 3&lt;/h3&gt;
+				&lt;h4&gt;Heading Level 4&lt;/h4&gt;
+				&lt;h5&gt;Heading Level 5&lt;/h5&gt;
+				&lt;h6&gt;Heading Level 6&lt;/h6&gt;
+				&lt;hr /&gt;
+				&lt;h5&gt;Blockquote&lt;/h5&gt;
+				&lt;blockquote&gt;Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.&lt;/blockquote&gt;
+				&lt;h5&gt;Preformatted&lt;/h5&gt;
+				&lt;pre&gt;&lt;code&gt;i = 0;
+
+while (!deck.isInOrder()) {
+  print 'Iteration ' + i;
+  deck.shuffle();
+  i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';&lt;/code&gt;&lt;/pre&gt;
+	&lt;/section&gt;
+	&lt;section&gt;
+		&lt;h4&gt;Lists&lt;/h4&gt;
+				&lt;div class=&quot;row&quot;&gt;
+					&lt;div class=&quot;6u 12u$(medium)&quot;&gt;
+						&lt;h5&gt;Unordered&lt;/h5&gt;
+						&lt;ul&gt;
+							&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
+							&lt;li&gt;Sagittis adipiscing.&lt;/li&gt;
+							&lt;li&gt;Felis enim feugiat.&lt;/li&gt;
+						&lt;/ul&gt;
+						&lt;h5&gt;Alternate&lt;/h5&gt;
+						&lt;ul class=&quot;alt&quot;&gt;
+							&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
+							&lt;li&gt;Sagittis adipiscing.&lt;/li&gt;
+							&lt;li&gt;Felis enim feugiat.&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;6u$ 12u$(medium)&quot;&gt;
+						&lt;h5&gt;Ordered&lt;/h5&gt;
+						&lt;ol&gt;
+							&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
+							&lt;li&gt;Etiam vel felis viverra.&lt;/li&gt;
+							&lt;li&gt;Felis enim feugiat.&lt;/li&gt;
+							&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
+							&lt;li&gt;Etiam vel felis lorem.&lt;/li&gt;
+							&lt;li&gt;Felis enim et feugiat.&lt;/li&gt;
+						&lt;/ol&gt;
+						&lt;h5&gt;Icons&lt;/h5&gt;
+						&lt;ul class=&quot;icons&quot;&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-twitter&quot;&gt;&lt;span class=&quot;label&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-facebook&quot;&gt;&lt;span class=&quot;label&quot;&gt;Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-instagram&quot;&gt;&lt;span class=&quot;label&quot;&gt;Instagram&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-github&quot;&gt;&lt;span class=&quot;label&quot;&gt;Github&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;h5&gt;Actions&lt;/h5&gt;
+				&lt;div class=&quot;row&quot;&gt;
+					&lt;div class=&quot;6u 12u$(medium)&quot;&gt;
+						&lt;ul class=&quot;actions&quot;&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+						&lt;ul class=&quot;actions small&quot;&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special small&quot;&gt;Small&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button small&quot;&gt;Small&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+						&lt;ul class=&quot;actions vertical&quot;&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+						&lt;ul class=&quot;actions vertical small&quot;&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special small&quot;&gt;Small&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button small&quot;&gt;Small&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;6u 12u$(medium)&quot;&gt;
+						&lt;ul class=&quot;actions vertical&quot;&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special fit&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button fit&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+						&lt;ul class=&quot;actions vertical small&quot;&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special small fit&quot;&gt;Small&lt;/a&gt;&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button small fit&quot;&gt;Small&lt;/a&gt;&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/section&gt;
+			&lt;section&gt;
+				&lt;h4&gt;Table&lt;/h4&gt;
+				&lt;h5&gt;Default&lt;/h5&gt;
+				&lt;div class=&quot;table-wrapper&quot;&gt;
+					&lt;table&gt;
+						&lt;thead&gt;
+							&lt;tr&gt;
+								&lt;th&gt;Name&lt;/th&gt;
+								&lt;th&gt;Description&lt;/th&gt;
+								&lt;th&gt;Price&lt;/th&gt;
+							&lt;/tr&gt;
+						&lt;/thead&gt;
+						&lt;tbody&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item One&lt;/td&gt;
+								&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
+								&lt;td&gt;29.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Two&lt;/td&gt;
+								&lt;td&gt;Vis ac commodo adipiscing arcu aliquet.&lt;/td&gt;
+								&lt;td&gt;19.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Three&lt;/td&gt;
+								&lt;td&gt; Morbi faucibus arcu accumsan lorem.&lt;/td&gt;
+								&lt;td&gt;29.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Four&lt;/td&gt;
+								&lt;td&gt;Vitae integer tempus condimentum.&lt;/td&gt;
+								&lt;td&gt;19.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Five&lt;/td&gt;
+								&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
+								&lt;td&gt;29.99&lt;/td&gt;
+							&lt;/tr&gt;
+						&lt;/tbody&gt;
+						&lt;tfoot&gt;
+							&lt;tr&gt;
+								&lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;
+								&lt;td&gt;100.00&lt;/td&gt;
+							&lt;/tr&gt;
+						&lt;/tfoot&gt;
+					&lt;/table&gt;
+				&lt;/div&gt;
+				&lt;h5&gt;Alternate&lt;/h5&gt;
+				&lt;div class=&quot;table-wrapper&quot;&gt;
+					&lt;table class=&quot;alt&quot;&gt;
+						&lt;thead&gt;
+							&lt;tr&gt;
+								&lt;th&gt;Name&lt;/th&gt;
+								&lt;th&gt;Description&lt;/th&gt;
+								&lt;th&gt;Price&lt;/th&gt;
+							&lt;/tr&gt;
+						&lt;/thead&gt;
+						&lt;tbody&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item One&lt;/td&gt;
+								&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
+								&lt;td&gt;29.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Two&lt;/td&gt;
+								&lt;td&gt;Vis ac commodo adipiscing arcu aliquet.&lt;/td&gt;
+								&lt;td&gt;19.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Three&lt;/td&gt;
+								&lt;td&gt; Morbi faucibus arcu accumsan lorem.&lt;/td&gt;
+								&lt;td&gt;29.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Four&lt;/td&gt;
+								&lt;td&gt;Vitae integer tempus condimentum.&lt;/td&gt;
+								&lt;td&gt;19.99&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td&gt;Item Five&lt;/td&gt;
+								&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
+								&lt;td&gt;29.99&lt;/td&gt;
+							&lt;/tr&gt;
+						&lt;/tbody&gt;
+						&lt;tfoot&gt;
+							&lt;tr&gt;
+								&lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;
+								&lt;td&gt;100.00&lt;/td&gt;
+							&lt;/tr&gt;
+						&lt;/tfoot&gt;
+					&lt;/table&gt;
+				&lt;/div&gt;
+			&lt;/section&gt;
+			&lt;section&gt;
+				&lt;h4&gt;Buttons&lt;/h4&gt;
+				&lt;ul class=&quot;actions&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special&quot;&gt;Special&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;ul class=&quot;actions&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button big&quot;&gt;Big&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button small&quot;&gt;Small&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;ul class=&quot;actions fit&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button fit&quot;&gt;Fit&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special fit&quot;&gt;Fit&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button fit&quot;&gt;Fit&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;ul class=&quot;actions fit small&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special fit small&quot;&gt;Fit + Small&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button fit small&quot;&gt;Fit + Small&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special fit small&quot;&gt;Fit + Small&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;ul class=&quot;actions&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button special icon fa-download&quot;&gt;Icon&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button icon fa-download&quot;&gt;Icon&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;ul class=&quot;actions&quot;&gt;
+					&lt;li&gt;&lt;span class=&quot;button special disabled&quot;&gt;Disabled&lt;/span&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;span class=&quot;button disabled&quot;&gt;Disabled&lt;/span&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/section&gt;
+			&lt;section&gt;
+				&lt;h4&gt;Form&lt;/h4&gt;
+				&lt;form method=&quot;post&quot; action=&quot;#&quot;&gt;
+					&lt;div class=&quot;row uniform&quot;&gt;
+						&lt;div class=&quot;6u 12u$(xsmall)&quot;&gt;
+							&lt;input type=&quot;text&quot; name=&quot;demo-name&quot; id=&quot;demo-name&quot; value=&quot;&quot; placeholder=&quot;Name&quot; /&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;6u$ 12u$(xsmall)&quot;&gt;
+							&lt;input type=&quot;email&quot; name=&quot;demo-email&quot; id=&quot;demo-email&quot; value=&quot;&quot; placeholder=&quot;Email&quot; /&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;12u$&quot;&gt;
+							&lt;div class=&quot;select-wrapper&quot;&gt;
+								&lt;select name=&quot;demo-category&quot; id=&quot;demo-category&quot;&gt;
+									&lt;option value=&quot;&quot;&gt;- Category -&lt;/option&gt;
+									&lt;option value=&quot;1&quot;&gt;Manufacturing&lt;/option&gt;
+									&lt;option value=&quot;1&quot;&gt;Shipping&lt;/option&gt;
+									&lt;option value=&quot;1&quot;&gt;Administration&lt;/option&gt;
+									&lt;option value=&quot;1&quot;&gt;Human Resources&lt;/option&gt;
+								&lt;/select&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;4u 12u$(small)&quot;&gt;
+							&lt;input type=&quot;radio&quot; id=&quot;demo-priority-low&quot; name=&quot;demo-priority&quot; checked&gt;
+							&lt;label for=&quot;demo-priority-low&quot;&gt;Low&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;4u 12u$(small)&quot;&gt;
+							&lt;input type=&quot;radio&quot; id=&quot;demo-priority-normal&quot; name=&quot;demo-priority&quot;&gt;
+							&lt;label for=&quot;demo-priority-normal&quot;&gt;Normal&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;4u$ 12u$(small)&quot;&gt;
+							&lt;input type=&quot;radio&quot; id=&quot;demo-priority-high&quot; name=&quot;demo-priority&quot;&gt;
+							&lt;label for=&quot;demo-priority-high&quot;&gt;High&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;6u 12u$(small)&quot;&gt;
+							&lt;input type=&quot;checkbox&quot; id=&quot;demo-copy&quot; name=&quot;demo-copy&quot;&gt;
+							&lt;label for=&quot;demo-copy&quot;&gt;Email me a copy&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;6u$ 12u$(small)&quot;&gt;
+							&lt;input type=&quot;checkbox&quot; id=&quot;demo-human&quot; name=&quot;demo-human&quot; checked&gt;
+							&lt;label for=&quot;demo-human&quot;&gt;Not a robot&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;12u$&quot;&gt;
+							&lt;textarea name=&quot;demo-message&quot; id=&quot;demo-message&quot; placeholder=&quot;Enter your message&quot; rows=&quot;6&quot;&gt;&lt;/textarea&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;12u$&quot;&gt;
+							&lt;ul class=&quot;actions&quot;&gt;
+								&lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;Send Message&quot; class=&quot;special&quot; /&gt;&lt;/li&gt;
+								&lt;li&gt;&lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;&lt;/li&gt;
+							&lt;/ul&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/form&gt;
+			&lt;/section&gt;
+			&lt;section&gt;
+				&lt;h4&gt;Image&lt;/h4&gt;
+				&lt;h5&gt;Fit&lt;/h5&gt;
+				&lt;div class=&quot;box alt&quot;&gt;
+					&lt;div class=&quot;row uniform 50%&quot;&gt;
+						&lt;div class=&quot;12u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/fire-umbrella-large.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic03.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic03.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+						&lt;div class=&quot;4u&quot;&gt;&lt;span class=&quot;image fit&quot;&gt;&lt;img src=&quot;/images/pic03.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;h5&gt;Left &amp;amp; Right&lt;/h5&gt;
+				&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/pic04.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.&lt;/p&gt;
+				&lt;p&gt;&lt;span class=&quot;image right&quot;&gt;&lt;img src=&quot;/images/pic05.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.&lt;/p&gt;
+			&lt;/section&gt;
+</description>
+        <pubDate>Wed, 16 Aug 3015 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/topics/elements.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/topics/elements.html</guid>
+        
+        
+        <category>topics</category>
+        
+      </item>
+    
+      <item>
+        <title>Last topic in group</title>
+        <description>&lt;p&gt;This about sums it all up.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Sep 3006 00:02:00 +0000</pubDate>
+        <link>https://www.imageflow.io/topics/my%20topic%20group/subcattest-topic3.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/topics/my%20topic%20group/subcattest-topic3.html</guid>
+        
+        
+        <category>topics</category>
+        
+        <category>my topic group</category>
+        
+      </item>
+    
+      <item>
+        <title>Test topic 2</title>
+        <description>&lt;p&gt;Yada yada and more yada.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Sep 3006 00:01:00 +0000</pubDate>
+        <link>https://www.imageflow.io/topics/my%20topic%20group/subcattest-topic2.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/topics/my%20topic%20group/subcattest-topic2.html</guid>
+        
+        
+        <category>topics</category>
+        
+        <category>my topic group</category>
+        
+      </item>
+    
+      <item>
+        <title>My Topic Group</title>
+        <description>&lt;p&gt;Here we go.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Sep 3006 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/topics/my topic group/</link>
+        <guid isPermaLink="true">https://www.imageflow.io/topics/my topic group/</guid>
+        
+        
+        <category>topics</category>
+        
+        <category>my topic group</category>
+        
+      </item>
+    
+      <item>
+        <title>Project Y</title>
+        <description>&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;24% increase in M, measured by N&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;summary&quot;&gt;Summary&lt;/h4&gt;
+
+&lt;p&gt;Project Y involved ….&lt;/p&gt;
+</description>
+        <pubDate>Thu, 01 Jan 3001 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/works/works-example2.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/works/works-example2.html</guid>
+        
+        <category>This</category>
+        
+        <category>That</category>
+        
+        <category>The other</category>
+        
+        
+        <category>works</category>
+        
+      </item>
+    
+      <item>
+        <title>Project Z</title>
+        <description>&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;19% increase in M, measured by N&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;summary&quot;&gt;Summary&lt;/h4&gt;
+
+&lt;p&gt;Project Z involved ….&lt;/p&gt;
+</description>
+        <pubDate>Mon, 01 Sep 3000 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/works/works-example3.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/works/works-example3.html</guid>
+        
+        <category>This</category>
+        
+        <category>That</category>
+        
+        <category>The other</category>
+        
+        
+        <category>works</category>
+        
+      </item>
+    
+      <item>
+        <title>Project X</title>
+        <description>&lt;h4 id=&quot;results&quot;&gt;Results&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;18% increase in M, measured by N&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;summary&quot;&gt;Summary&lt;/h4&gt;
+
+&lt;p&gt;Project X involved ….&lt;/p&gt;
+</description>
+        <pubDate>Wed, 01 Jan 3000 00:00:00 +0000</pubDate>
+        <link>https://www.imageflow.io/works/works-example1.html</link>
+        <guid isPermaLink="true">https://www.imageflow.io/works/works-example1.html</guid>
+        
+        <category>This</category>
+        
+        <category>That</category>
+        
+        <category>The other</category>
+        
+        
+        <category>works</category>
+        
+      </item>
+    
   </channel>
 </rss>
