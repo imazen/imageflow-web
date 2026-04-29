@@ -69,28 +69,6 @@
       </div>
     </section>
 
-    {% if posts %}
-    <!-- Recent posts -->
-    <section id="recent" class="wrapper alt style2">
-      <div class="inner">
-        <h2>Recent posts</h2>
-        {% assign sorted = posts | sortBy: "date", "desc" %}
-        <ul>
-          {% for post in sorted %}
-            {% if forloop.index <= 6 %}
-          <li>
-            <a href="{{ site.baseurl }}{{ post.url }}">
-              <h3>{{ post.title }}</h3>
-              {% if post.excerpt %}<p>{{ post.excerpt | striphtml | truncate: 200 }}</p>{% endif %}
-            </a>
-          </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    </section>
-    {% endif %}
-
     {% include "footer" %}
     {% include "scripts" %}
   </div>
