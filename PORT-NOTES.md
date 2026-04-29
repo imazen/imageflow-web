@@ -56,13 +56,14 @@ identical. Three changes:
 These were used by the original site and dropped or stubbed during port.
 Each one is a candidate enhancement to Interleaved itself.
 
-  1. **`site.posts`, `site.pages`, `site.tags.X`, `site.categories.X` as
-     globals available in every render.** Used by `_includes/header.html`
-     to auto-build the menu, by `landing.html` to list pages with spotlights,
-     and by `post.html` to find sibling posts. Replaced here with a manually
-     curated `site.nav` array in `data/site.toml`. Adding these to
-     Interleaved would be straightforward — pre-compute in the build script
-     and inject into the template context for every render.
+  1. ~~**`site.posts`, `site.pages`, `site.tags.X`, `site.categories.X` as
+     globals available in every render.**~~ **CLOSED** — Interleaved now
+     pre-scans content frontmatter and exposes Jekyll-style collections to
+     every render. Use `{{ site.posts | sortBy: 'date', 'desc' }}`,
+     `{{ site.categories.works }}`, `{{ site.tags.featured }}` directly in
+     templates. The landing page's "recent posts" block now uses this. Header
+     menu still uses `site.nav` (curated) instead of auto-deriving from
+     `site.pages` — that's a stylistic choice; either works now.
 
   2. **`site.time`** — current build time. Used in the footer copyright. Replaced
      here with a hard-coded `site.this_year` field in `site.toml`. A
