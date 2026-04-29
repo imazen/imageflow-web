@@ -1,0 +1,15 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | striphtml | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="canonical" href="{{ page.url | absoluteUrl: site.url }}">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" />
+  {% if page.style_includes %}
+    {% for include in page.style_includes %}
+  <link rel="stylesheet" href="{% if include | replace: '/', '' | first | replace: ':', '' | eq: '' %}{{ site.baseurl }}{% endif %}{{ include }}" />
+    {% endfor %}
+  {% endif %}
+  {% if page.style %}<style>{{ page.style }}</style>{% endif %}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml">
+</head>

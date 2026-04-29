@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+  Original Design: Spectral by HTML5 UP (html5up.net | @n33co)
+  Free for personal and commercial use under the CCA 3.0 license
+  Jekyll build mod by @arkadianriver. Ported to Interleaved 2026-04-29.
+-->
+<html>
+{% include "head" %}
+<body>
+  <div id="page-wrapper">
+    {% include "header" %}
+
+    <article id="{% if page.background_image %}main{% elsif page.options contains 'minihead' %}minihead{% else %}standard{% endif %}">
+      {% include "header_inner" %}
+      {{ content }}
+    </article>
+
+    {% include "footer" %}
+    {% include "scripts" %}
+  </div>
+</body>
+</html>

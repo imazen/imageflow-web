@@ -1,0 +1,16 @@
+{
+  "name": "imageflow-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsx build/build.ts --src . --out _site",
+    "preview": "npm run build && python3 -m http.server --directory _site 8000"
+  },
+  "dependencies": {
+    "@ltd/j-toml": "^1.38.0",
+    "liquidjs": "^10.25.7",
+    "marked": "^18.0.0",
+    "tsx": "^4.20.6",
+    "yaml": "^2.8.3"
+  }
+}
