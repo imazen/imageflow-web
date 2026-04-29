@@ -1,0 +1,69 @@
+# Site-wide settings + global data, available in every template as `{{ site.field }}`.
+# Migrated from _config.yml.
+
+title       = "Imageflow - Optimal images at incredible speeds"
+description = "treat your images right"
+url         = "https://www.imageflow.io"
+baseurl     = ""
+first_published = 2016
+# Hard-coded current year for the copyright. In Jekyll this was site.time | date: "%Y";
+# Interleaved doesn't expose render-time clock data yet, so update annually.
+this_year = 2026
+
+# Closing block (still rendered on the landing page footer).
+closing_head = "Thanks for visiting"
+closing_para = "Feel free to get in touch. Cheers!"
+
+# Greeting block on the landing page. Set `greeting.title = ""` to hide.
+[greeting]
+title = "What does imageflow solve?"
+text  = "It provides a compact and correct toolkit for transforming image assets. libimageflow allows in-process use, and imageflow-server enables easy responsive images."
+
+[owner]
+name  = "Imazen"
+email = "support@imazen.io"
+url   = "http://imazen.io"
+
+# Social links — used for the icon list on the landing page.
+[social]
+twitter = "https://twitter.com/imageflow_io"
+github  = "https://github.com/imazen/imageflow"
+email   = "mailto:support@imazen.io"
+
+# Featured topics title + flags.
+features_title    = "Featured topics"
+works_in_progress = true
+custom_extensions = false
+
+# Where to put back/next links on works/topics: top, bottom, both, or none.
+navlinks = "bottom"
+
+# Header / menu navigation. In Jekyll this was auto-derived from site.pages;
+# in Interleaved we curate it explicitly so non-listed content can exist.
+[[nav]]
+label = "Home"
+url   = "/"
+
+[[nav]]
+label = "Benchmarks"
+url   = "/benchmarks/"
+
+[[nav]]
+label = "Licensing"
+url   = "/licensing/"
+
+[[nav]]
+label = "Topics"
+url   = "/topics/"
+
+[[nav]]
+label = "Works"
+url   = "/works/"
+
+[[nav]]
+label = "Credits"
+url   = "/credits/"
+
+[[nav]]
+label = "Contact"
+url   = "/contact/"

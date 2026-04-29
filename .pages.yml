@@ -1,0 +1,57 @@
+# Interleaved CMS configuration.
+# Maps the on-disk content layout into editable collections shown in the admin UI.
+
+content:
+  - name: posts
+    label: Posts
+    path: content/posts
+    type: collection
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date }
+      - { name: layout, label: Layout, type: string }
+      - { name: categories, label: Categories, type: string, list: true }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: excerpt, label: Excerpt, type: text }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: pages
+    label: Pages
+    path: content
+    type: collection
+    filename: "*.md"
+    exclude:
+      - posts/**
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: layout, label: Layout, type: string }
+      - { name: permalink, label: Permalink, type: string }
+      - { name: excerpt, label: Excerpt, type: text }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: site
+    label: Site settings
+    path: data/site.toml
+    type: file
+    format: toml
+
+  - name: authors
+    label: Authors
+    path: data/authors.toml
+    type: file
+    format: toml
+
+  - name: tokens
+    label: Site tokens
+    path: data/tokens.toml
+    type: file
+    format: toml
+
+media:
+  - name: images
+    label: Images
+    input: static/images
+    output: /images
+    extensions: [jpg, jpeg, png, gif, svg, webp, avif]

@@ -1,0 +1,9 @@
+# Site-specific values that should not propagate to forks (originally
+# .gitexcluded in the Jekyll setup as _data/tokens.yml).
+# Adjust per deployment.
+
+google_analytics = "UA-5218175-14"
+
+# mailaction = "<url to your mail-sending app>"
+# extra_credit = ""
+# image_credit = ""

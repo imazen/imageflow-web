@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+{% include "head" %}
+<body>
+  <div id="page-wrapper">
+    {% include "header" %}
+
+    <article id="standard">
+      {% include "header_inner" %}
+      <section class="wrapper{% if page.options contains 'minihead' %} minihead{% endif %} style5">
+        <div class="inner{% if page.options contains 'fullwidth' %} fullwidth{% endif %}">
+          {{ content }}
+        </div>
+      </section>
+    </article>
+
+    {% include "footer" %}
+    {% include "scripts" %}
+  </div>
+</body>
+</html>
